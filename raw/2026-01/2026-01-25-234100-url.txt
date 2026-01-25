@@ -1,0 +1,11 @@
+---
+received: 2026-01-25 23:41:00
+type: url
+source: telegram
+---
+
+https://www.koc.com.tw/archives/626729?fbclid=Iwb21leAPQM_ZjbGNrA9Az7WV4dG4DYWVtAjExAHNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHiqWJgHo1Z2ZqBzXp4zx8821bZtxRX2xHVqjecgvHTkCWyu85MO1svCMZOpY_aem_wbGjorn0vz9QgYS_hmHxzw
+
+標題：NotebookLM 簡報編輯器 - 實現能修改簡報內文字的免費工具
+來源：電腦王阿達 (KOC)
+作者：Rocky
