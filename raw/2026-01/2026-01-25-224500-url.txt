@@ -1,0 +1,7 @@
+---
+received: 2026-01-25 22:45:00
+type: url
+source: telegram
+---
+
+https://themodernsoftware.dev/?fbclid=Iwb21leAPUiMJjbGNrA9SIpWV4dG4DYWVtAjExAHNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHhDRmuz85p0H-M7V3uX0p37DZ1qaL30_GFvKRXCt7tG3Wo0OnoKpoqhyyvqg_aem_CHkgAbPtV2zATSZBcjwZRQ
