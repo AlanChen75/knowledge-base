@@ -1,0 +1,8 @@
+---
+received: 2026-01-25 19:03:38
+type: url
+source: telegram
+---
+
+Maxun：2分鐘打造你的自動化網頁資料擷取機器人 | RepoInside | RepoInside
+https://repoinside.com/getmaxun/maxun

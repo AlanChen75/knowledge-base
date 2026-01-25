@@ -1,0 +1,7 @@
+---
+received: 2026-01-25 18:52:30
+type: url
+source: telegram
+---
+
+https://github.com/ChatGPT3a01/open-notebookllm
