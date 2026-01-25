@@ -1,0 +1,15 @@
+---
+received: 2026-01-25 22:45:12
+type: pdf
+source: telegram
+filename: NILM_Final_Report.pdf
+---
+
+收到 PDF 檔案：NILM_Final_Report.pdf
+
+檔案位置：/home/ac-mac/knowledge-base/resources/pdf/2026-01/2026-01-25-224512-NILM_Final_Report.pdf
+
+這是一份 NILM（非侵入式負載監測）模型比較的期末報告簡報，比較 LSTM、Random Forest、SVM 三種模型在家庭用電分類任務上的表現。
+
+作者：D11351004 陳重光 (Alan Chen)
+類型：Final Presentation
