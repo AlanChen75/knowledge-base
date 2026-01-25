@@ -4,4 +4,4 @@ type: url
 source: telegram
 ---
 
-https://themodernsoftware.dev/?fbclid=Iwb21leAPUiMJjbGNrA9SIpWV4dG4DYWVtAjExAHNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHhDRmuz85p0H-M7V3uX0p37DZ1qaL30_GFvKRXCt7tG3Wo0OnoKpoqhyyvqg_aem_CHkgAbPtV2zATSZBcjwZRQ
+https://www.koc.com.tw/archives/626729?fbclid=Iwb21leAPQM_ZjbGNrA9Az7WV4dG4DYWVtAjExAHNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHiqWJgHo1Z2ZqBzXp4zx8821bZtxRX2xHVqjecgvHTkCWyu85MO1svCMZOpY_aem_wbGjorn0vz9QgYS_hmHxzw
