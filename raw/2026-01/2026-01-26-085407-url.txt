@@ -1,0 +1,14 @@
+---
+received: 2026-01-26 08:54:07
+type: url
+source: telegram
+---
+
+https://youtu.be/8CJHT_oCm7U?si=TzYoyCgDOocSBXb9
+
+---
+Video Info (via oembed):
+Title: 90%的人，從一開始就練錯了英語聽力｜6大關鍵一次講清
+Channel: brain 學霸
+Channel URL: https://www.youtube.com/@brain%E5%AD%B8%E9%9C%B8
+Thumbnail: https://i.ytimg.com/vi/8CJHT_oCm7U/hqdefault.jpg
