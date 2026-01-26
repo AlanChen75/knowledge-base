@@ -1,0 +1,7 @@
+---
+received: 2026-01-26 08:55:24
+type: url
+source: telegram
+---
+
+https://www.koc.com.tw/archives/626729
