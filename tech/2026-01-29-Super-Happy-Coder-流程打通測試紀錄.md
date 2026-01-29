@@ -155,10 +155,70 @@ cmd = ['gemini', '-p', enhanced_prompt, '-o', 'stream-json', '-y']
 
 ---
 
-## 五、待辦事項
+## 五、Qwen2.5-7B vLLM 部署
 
-- [ ] vLLM 模型下載完成後啟動測試（Qwen2.5-7B-Instruct，~15GB 下載中）
+### 5.1 模型下載與自動化測試
+
+**下載狀態：** 進行中（已續傳，支援自動恢復）
+
+| 項目 | 說明 |
+|------|------|
+| 模型 | Qwen/Qwen2.5-7B-Instruct |
+| 預估大小 | 13 GB |
+| 當前進度 | ~42% (5.47 GB) |
+| 下載方式 | HuggingFace Hub（自動續傳） |
+| 監控腳本 | `/tmp/monitor_qwen_download.sh` (ac-3090) |
+| 日誌檔案 | `/tmp/qwen-monitor.log` (ac-3090) |
+
+**自動化流程：**
+1. 背景下載 Qwen2.5-7B 模型（PID 65596）
+2. 監控腳本每分鐘檢查進度（PID 自動）
+3. 下載完成後自動啟動 vLLM 服務
+4. 自動執行 3 項測試：
+   - 健康檢查
+   - 模型列表驗證
+   - 文字生成測試（繁體中文五言絕句）
+
+**查看狀態：**
+```bash
+# 本地快速檢查
+/tmp/check_qwen_status.sh
+
+# 查看即時日誌
+ssh ac-3090 "tail -f /tmp/qwen-monitor.log"
+
+# 檢查下載進程
+ssh ac-3090 "ps aux | grep 'huggingface.*Qwen'"
+
+# 檢查檔案大小
+ssh ac-3090 "du -sh ~/.cache/huggingface/models--Qwen--Qwen2.5-7B-Instruct"
+```
+
+### 5.2 vLLM 服務配置
+
+**啟動參數：**
+```bash
+python3 -m vllm.entrypoints.openai.api_server \
+  --model Qwen/Qwen2.5-7B-Instruct \
+  --host 127.0.0.1 \
+  --port 8000 \
+  --max-model-len 4096 \
+  --gpu-memory-utilization 0.9
+```
+
+**API 端點：**
+- 健康檢查: `http://127.0.0.1:8000/health`
+- 模型列表: `http://127.0.0.1:8000/v1/models`
+- 文字生成: `http://127.0.0.1:8000/v1/completions`
+- Chat 補全: `http://127.0.0.1:8000/v1/chat/completions`
+
+---
+
+## 六、待辦事項
+
+- [x] vLLM 模型下載（Qwen2.5-7B-Instruct，自動化測試已設定）
+- [ ] vLLM 測試結果驗證（等待下載完成）
+- [ ] 整合 vLLM 到 Compute Plane API
 - [ ] Rerank 端點測試（模型首次載入時自動下載）
 - [ ] OCR 端點測試（需要圖片素材）
-- [ ] TG Bot 整合（等 Token）
 - [ ] 壓力測試（多用戶並發）
