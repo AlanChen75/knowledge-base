@@ -216,9 +216,13 @@ python3 -m vllm.entrypoints.openai.api_server \
 
 ## 六、待辦事項
 
-- [x] vLLM 模型下載（Qwen2.5-7B-Instruct，自動化測試已設定）
-- [ ] vLLM 測試結果驗證（等待下載完成）
-- [ ] 整合 vLLM 到 Compute Plane API
-- [ ] Rerank 端點測試（模型首次載入時自動下載）
-- [ ] OCR 端點測試（需要圖片素材）
+- [x] vLLM 模型下載（Qwen2.5-7B-Instruct，15GB 完成）
+- [x] vLLM 測試結果驗證 → 5/5 通過（中文/英文/程式碼生成）
+- [x] 整合 vLLM 到 Compute Plane API → systemd 服務 `vllm.service` 開機自啟
+- [x] Rerank 端點測試 → 通過（bge-reranker-v2-m3，排序正確）
+- [x] Embedding 端點測試 → 通過（bge-base-zh-v1.5，768 維）
+- [ ] OCR 端點測試 → `use_gpu` 參數不相容，待修
+- [ ] CLI Backend 切換到 Claude 後的完整端到端測試
 - [ ] 壓力測試（多用戶並發）
+
+> 完整服務清單見：`tech/server-config/2026-01-30-全機服務清單.md`

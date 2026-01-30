@@ -50,6 +50,8 @@
 - fail2ban (入侵防護)
 - tailscaled (Tailscale VPN)
 - nvidia-persistenced (NVIDIA GPU 服務)
+- vllm (Qwen2.5-7B-Instruct LLM 推理)
+- compute-plane (GPU 運算 API)
 
 #### 相關檔案
 ```
