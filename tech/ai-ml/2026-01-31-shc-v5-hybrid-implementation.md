@@ -119,3 +119,30 @@ SHC v330 使用純靜態 MODULE.yaml 管線，無法處理模組庫中不存在�
 - 服務重啟成功，health endpoint 回報 v5.0.0
 - hybrid admin APIs 全部回應正常
 - 4 個固定模組 (M1/M2/M3/M6) 正常載入
+
+## 模擬測試結果（20 學員）
+
+### 測試概要
+- **日期**: 2026-01-31 15:00
+- **測試腳本**: test_simulation_v5.py
+- **學員數**: 20（Wave 1: 5 新模組、Wave 2: 5 中級、Wave 3: 10 複雜）
+- **總請求**: 46 輪
+
+### 結果
+| 指標 | 數值 |
+|------|------|
+| 成功率 | 73.9% (34/46) |
+| fixed 路由 | 27 次 (79.4%) |
+| dynamic 路由 | 7 次 (20.6%) |
+| 總耗時 | 249.2s |
+| AgentCreator 成功 | 6/7 (86%) |
+| 新建待審核模組 | 9 個 |
+
+### 失敗根因
+1. **M2 web-deploy** (7/12 失敗): deploy.sh 使用 bash `source` 指令，但系統 /bin/sh 是 dash
+2. **M6 presentation-pptx** (4/12 失敗): PPTX 大小驗證門檻設 50KB 過高
+
+### 修復建議
+- M2: deploy.sh shebang 改為 `#!/bin/bash` 或用 `. ./deploy.sh`
+- M6: 降低大小門檻或改為內容結構驗證
+- 修復後預估成功率可達 95%+
