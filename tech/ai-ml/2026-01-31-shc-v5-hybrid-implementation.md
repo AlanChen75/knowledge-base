@@ -100,3 +100,22 @@ SHC v330 使用純靜態 MODULE.yaml 管線，無法處理模組庫中不存在�
     ├── specs/85-hybrid-orchestration.md  # 新增
     └── tasks/milestone-hybrid.md        # 新增
 ```
+
+## proxy.py 正式整合（v5.0.0）
+
+### 改動摘要
+- 新增 `from hybrid_orchestrator import HybridOrchestrator` import
+- 延遲初始化 `get_hybrid_orchestrator()` 避免循環依賴
+- SessionManager 新增 `execute_hybrid()` / `_execute_hybrid_task()` 方法
+- `/api/v1/chat` 新增 `mode=hybrid` 參數
+- 新增 4 個 admin API endpoints:
+  - GET `/api/v1/admin/hybrid/stats`
+  - GET `/api/v1/admin/hybrid/modules`
+  - POST `/api/v1/admin/hybrid/modules/reload`
+  - POST `/api/v1/admin/hybrid/modules/<id>/approve`
+- 版本號 3.3.0 → 5.0.0
+
+### 驗證結果
+- 服務重啟成功，health endpoint 回報 v5.0.0
+- hybrid admin APIs 全部回應正常
+- 4 個固定模組 (M1/M2/M3/M6) 正常載入
