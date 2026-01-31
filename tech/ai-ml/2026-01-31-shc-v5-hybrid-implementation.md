@@ -146,3 +146,34 @@ SHC v330 使用純靜態 MODULE.yaml 管線，無法處理模組庫中不存在�
 - M2: deploy.sh shebang 改為 `#!/bin/bash` 或用 `. ./deploy.sh`
 - M6: 降低大小門檻或改為內容結構驗證
 - 修復後預估成功率可達 95%+
+
+## P0/P1/P2 修復紀錄
+
+### P0: 固定模組失敗自動 fallback
+- **根因**: M-SYS 助教 agent 已設計但未部署；固定模組失敗無 fallback 機制
+- **修復**:
+  1. 部署 M-SYS MODULE.yaml → OutputAnalyzer 偵測錯誤 → M-SYS 6 步修復
+  2. hybrid_orchestrator.py `_run_fixed()` 失敗時 fallback 到 DynamicPlanner
+  3. M2 deploy step `source ~/.env` → `. ~/.env`（POSIX 相容）
+- **效果**: mode=fixed+dynamic，固定模組失敗自動接力完成任務
+
+### P1: 產出物推送
+- **新增 output_delivery.py**:
+  - 收集 execution outputs._files（PPTX, HTML, etc.）
+  - git push 到 ai-cooperation/workshop repo (outputs/{student_id}/{date}/)
+  - Telegram Bot API 發送下載連結（Markdown 格式）
+- **整合**: hybrid_orchestrator 在 fixed/dynamic 模式完成後自動呼叫
+
+### P2: AgentCreator 改進
+- **YAML 修正重試**: 驗證失敗 → _fix_yaml() 用 HIGH tier LLM 修正 → 最多重試 2 次
+- **智慧自動啟用**: quality_score >= 0.9 直接寫入 skills/（跳過 _pending/）
+- **即時 hot-reload**: 建模組後立即 registry.reload() + semantic_cache.clear()
+
+### 修復後測試結果
+| 指標 | 修復前 | 修復後 |
+|------|--------|--------|
+| 成功率 | 73.9% (34/46) | **100% (46/46)** |
+| 平均回應 | 1,470 chars | **2,590 chars (+76%)** |
+| 模組自動建立 | 6 (進 _pending/) | **13 (直接啟用)** |
+| YAML 驗證失敗 | 1 (無修正) | **0 (自動修正)** |
+| M-SYS 修復觸發 | 20 次全失敗 | **全自動修復** |
