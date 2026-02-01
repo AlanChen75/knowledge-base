@@ -8,9 +8,9 @@
 
 | Bot 名稱 | Username | Token (前綴) | 用途 |
 |---------|----------|-------------|------|
-| AC Server Monitor Bot | @ac_server_monitor_bot | `8434771714:AAHJg...` | 系統監控、SSH 登入通知 |
-| 知識庫助手 Bot | @RemoteAi123_bot | `8226788629:AAEfC...` | 知識庫管理、Claude 互動 |
-| ComfyUI Bot | @ac_comfyui_bot | `8163548022:AAHB8...` | ComfyUI 圖片生成 |
+| AC Server Monitor Bot | @ac_server_monitor_bot | `8434771714:AAH***` | 系統監控、SSH 登入通知 |
+| 知識庫助手 Bot | @RemoteAi123_bot | `8226788629:AAE***` | 知識庫管理、Claude 互動 |
+| ComfyUI Bot | @ac_comfyui_bot | `8163548022:AAH***` | ComfyUI 圖片生成 |
 
 **重要**: 三個 Bot 各有獨立的 Token，不會互相衝突。
 
@@ -20,8 +20,8 @@
 
 ### 1. AC Server Monitor Bot (@ac_server_monitor_bot)
 - **用途**: 伺服器監控、SSH 登入通知、系統狀態查詢
-- **Bot Token**: `8434771714:AAH***REDACTED***`
-- **Chat ID**: `CHAT_ID_REDACTED`
+- **Bot Token**: `8434771714:AAH***（見各主機 ~/.env）`
+- **Chat ID**: `（見各主機 ~/.env）`
 - **服務名稱**: `tg-monitor-bot.service`
 - **腳本位置**: `/usr/local/bin/server-monitor/`
 - **部署主機**: Mac Mini (ac-mac)
@@ -86,7 +86,7 @@ MONITOR_ALLOWED_USER_ID=your_user_id
 
 ### 2. 知識庫助手 Bot (@RemoteAi123_bot)
 - **用途**: 知識庫管理、Claude CLI 整合、系統狀態查詢
-- **Bot Token**: `8226788629:AAE***REDACTED***`
+- **Bot Token**: `8226788629:AAE***（見各主機 ~/.env）`
 - **服務位置**: `/home/ac-mac/tg-claude-bot/`
 - **部署主機**: Mac Mini (ac-mac)
 
@@ -128,7 +128,7 @@ CLAUDE_BOT_ALLOWED_USER_ID=your_user_id
 
 ### 3. ComfyUI Bot (@ac_comfyui_bot)
 - **用途**: ComfyUI 圖片生成
-- **Bot Token**: `8163548022:AAH***REDACTED***`
+- **Bot Token**: `8163548022:AAH***（見各主機 ~/.env）`
 - **腳本位置**: `/home/ac-mac/comfyui-telegram-bot.py`
 - **部署主機**: Mac Mini (ac-mac)
 
