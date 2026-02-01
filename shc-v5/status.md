@@ -139,3 +139,32 @@ PPTX → LibreOffice(headless) → PDF → pdftoppm → per-page PNG → LLM 抽
 3. 設計真實交付物測試場景（網站+簡報+系統部署）
 4. PPTX LLM 品質抽檢整合到 agent_executor
 5. Telegram Bot /happy 命令整合
+
+## ac-mac SSH Key 設定（2026-02-01）
+
+### 雙帳號 SSH 設定
+
+| Host alias | Key 檔案 | GitHub 帳號 | 用途 |
+|-----------|----------|------------|------|
+| github.com | ~/.ssh/id_ed25519 | AlanChen75 | 個人 repo（knowledge-base 等）|
+| github-org | ~/.ssh/id_ed25519_github | ai-cooperation | 組織 repo（workshop 等）|
+
+### SSH config (~/.ssh/config)
+```
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+
+Host github-org
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_github
+    IdentitiesOnly yes
+```
+
+### 使用方式
+- AlanChen75 repo: `git@github.com:AlanChen75/xxx.git`（預設）
+- ai-cooperation repo: `git@github-org:ai-cooperation/xxx.git`
+- 不需要 token，SSH key 認證無過期問題
