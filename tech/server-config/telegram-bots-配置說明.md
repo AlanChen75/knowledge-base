@@ -131,6 +131,9 @@
 ```
 
 #### systemd 服務設定
+
+> ⚠️ **重要**：此服務需要呼叫 Claude CLI（Node.js 應用），PATH 必須包含 NVM 的 node 路徑！
+
 ```ini
 [Unit]
 Description=Telegram Knowledge Base Bot
@@ -145,11 +148,18 @@ ExecStart=/usr/bin/python3 /home/ac-mac/tg-claude-bot/bot.py
 Restart=always
 RestartSec=10
 Environment=HOME=/home/ac-mac
-Environment=PATH=/usr/local/bin:/usr/bin:/bin:/home/ac-mac/.local/bin
+# ⚠️ 關鍵：必須包含 NVM node 路徑，否則 Claude CLI 無法執行
+Environment=PATH=/home/ac-mac/.nvm/versions/node/v20.20.0/bin:/usr/local/bin:/usr/bin:/bin:/home/ac-mac/.local/bin
 
 [Install]
 WantedBy=multi-user.target
 ```
+
+**為什麼需要 NVM 路徑？**
+- Claude CLI 安裝在 `/home/ac-mac/.nvm/versions/node/v20.20.0/bin/claude`
+- Claude CLI 的 shebang 是 `#!/usr/bin/env node`
+- systemd 服務不會繼承用戶的 shell 環境（`~/.bashrc`、`~/.nvm/nvm.sh`）
+- 如果 PATH 沒有包含 node，執行 Claude CLI 會報錯：`/usr/bin/env: 'node': No such file or directory`
 
 ---
 
@@ -235,6 +245,73 @@ sudo systemctl disable tg-claude-bot.service  # 禁用開機自啟
 sudo systemctl enable tg-claude-bot.service   # 啟用開機自啟
 ```
 
+### 修改服務檔案後重新載入
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart tg-claude-bot.service
+```
+
+---
+
+## 常見問題排查
+
+### 1. `node: No such file or directory`
+
+**症狀**：知識庫 Bot 回覆 `/usr/bin/env: 'node': No such file or directory`
+
+**原因**：systemd 服務的 PATH 沒有包含 NVM 的 node 路徑
+
+**解決方法**：
+```bash
+# 檢查服務檔案的 PATH 設定
+cat /etc/systemd/system/tg-claude-bot.service | grep PATH
+
+# 確認包含 NVM 路徑：/home/ac-mac/.nvm/versions/node/v20.20.0/bin
+# 如果沒有，編輯服務檔案加入：
+sudo nano /etc/systemd/system/tg-claude-bot.service
+
+# 重新載入並重啟
+sudo systemctl daemon-reload
+sudo systemctl restart tg-claude-bot.service
+```
+
+### 2. `Conflict: terminated by other getUpdates request`
+
+**症狀**：Bot 無法正常運作，日誌顯示 409 Conflict 錯誤
+
+**原因**：多個 Bot 進程同時運行，搶同一個 Token
+
+**解決方法**：
+```bash
+# 檢查是否有多個進程
+ps aux | grep tg-claude-bot
+
+# 使用 systemctl 重啟（會自動殺掉舊進程）
+sudo systemctl restart tg-claude-bot.service
+
+# ⚠️ 不要手動 kill 後用 nohup 啟動，會造成多進程衝突
+```
+
+### 3. NVM 版本更新後服務失效
+
+**症狀**：升級 Node.js 版本後，服務無法啟動
+
+**原因**：服務檔案中的 node 路徑是硬編碼的
+
+**解決方法**：
+```bash
+# 檢查當前 node 路徑
+which node  # 或 ls ~/.nvm/versions/node/
+
+# 更新服務檔案中的路徑
+sudo nano /etc/systemd/system/tg-claude-bot.service
+# 修改 PATH 中的 node 版本號
+
+# 重新載入並重啟
+sudo systemctl daemon-reload
+sudo systemctl restart tg-claude-bot.service
+```
+
 ---
 
 ## 注意事項
@@ -246,6 +323,7 @@ sudo systemctl enable tg-claude-bot.service   # 啟用開機自啟
 5. 3090 上只部署監控腳本，不運行 Bot 服務（由 Mac Mini 的 Bot 透過 SSH 遠端執行）
 6. 已禁用舊的 `telegram-bot.service`（避免與 Monitor Bot 衝突）
 7. **Token 安全**：所有 token 只存放在 `~/.env` 或程式碼的環境變數讀取中，不要 commit 到 git
+8. **知識庫 Bot 需要 NVM PATH**：systemd 服務的 PATH 必須包含 `/home/ac-mac/.nvm/versions/node/v20.20.0/bin`
 
 ---
 
