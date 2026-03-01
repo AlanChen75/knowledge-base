@@ -1,0 +1,31 @@
+---
+received: 2026-03-01 09:01:27
+type: text
+source: telegram
+---
+
+Claude Code 今天推出了 Remote Control，解決了 AI coding agent 一個很實際的問題，你必須坐在電腦前面盯著它。
+
+用過 Claude Code 的人都知道，它跑一個複雜任務可能要十幾二十分鐘。這段時間你得留在終端機前面，因為它隨時可能問你問題、需要你 approve 某個動作。離開座位就等於暫停工作。
+
+Remote Control 做的事情很簡單，在終端機輸入 claude rc，你的手機或瀏覽器就能接手這個 session。散步的時候可以用手機看進度，開會的時候偷偷 approve 一個 PR，甚至下班走出辦公室之後繼續監督任務，技術上有幾個細節值得了解。
+
+第一，端對端加密，Anthropic 完全看不到你的程式碼。這對企業用戶來說是必要條件。
+
+第二，自動重連。筆電蓋起來、網路斷掉，session 不會死，機器回來就自動接上。這代表你不用擔心走到咖啡廳的路上 session 掛掉。
+
+第三，支援多個同時 session，每個在手機 app 上是獨立的入口。
+
+目前只開放給 Max 訂閱者（Research Preview），Pro 用戶之後會跟上。
+
+從產品角度看，這是一個很聰明的動作。Claude Code 的年化營收已經到 25 億美元，今年初翻了一倍以上。但 CLI 工具天生的限制就是綁在終端機上，Remote Control 等於把使用場景從「坐在電腦前」擴展到「任何有手機的地方」。
+
+熟悉的人可能會想到 OpenClaw，Peter Steinberger 做的這個開源 AI agent 在 GitHub 拿了 68,000 顆星，核心概念就是透過 WhatsApp、Telegram 這些通訊軟體操控 AI，天生手機優先、隨時待命。Claude Code 過去最大的差距就在這裡：它綁死在終端機，你得坐在電腦前才能用。
+
+Remote Control 顯然是在補這個缺口。現在兩者的定位還是不同，OpenClaw 是通用私人助理，從訂機票到管信箱什麼都做；Claude Code 專注在寫程式，能力更深但場景更窄。
+
+但我覺得這條線會越來越模糊，Claude Code 今天只是幫你寫程式，但當它能從手機操控之後，下一步自然就是讓它做更多事。操作介面已經打通了，從「幫你寫程式碼」到「幫你操作電腦上的任何事」，中間的距離比想像中短。
+
+Anthropic 已經有 computer use 的能力，Claude Code 有了 Remote Control 之後，這兩個東西接起來就是一個隨時待命的個人 AI 助理。
+
+換句話說，OpenClaw 從通訊軟體往專業能力走，Claude Code 從專業能力往通用助理走。最後大家可能會在同一個地方碰頭。
