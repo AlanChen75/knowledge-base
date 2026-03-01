@@ -1,0 +1,11 @@
+---
+received: 2026-03-01 08:59:45
+type: note
+source: telegram
+---
+
+重覆的任務,未必每次都需要 claude 這種高價大腦。
+
+今日做了個小實驗,用 github copilot 加 claude opus 4.6 ,把這幾天訓練龍蝦而生成的 memory 去練成多個 web services, 使用方法就記錄成 skills
+
+之後用免費的 model (gpt-4o) 亦做到穩定的效果
