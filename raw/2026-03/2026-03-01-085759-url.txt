@@ -1,0 +1,10 @@
+---
+received: 2026-03-01 08:57:59
+type: url
+source: telegram
+---
+
+https://unwire.hk/2026/02/28/wifi-densepose-github-open-source/tech-secure/?fbclid=Iwb21leAQQaaBjbGNrBBBpl2V4dG4DYWVtAjExAHNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHn1pbufF9xqgjcuXDqSygg0OEtMGZ0L3C2WbHyMa2RB4nqom0kDteWUl-PoY_aem_ItArXhad7mUbMALz4gB8wg&utm_id=97758_v0
+
+描述：
+開源項目 WiFi DensePose 利用普通 WiFi 路由器的 Channel State Information（CSI）訊號，無需攝影機即可即時追蹤人體姿態，並能穿透牆壁偵測。系統姿態偵測準確率達 94.2%，跌倒偵測靈敏度高達 96.5%，延遲低於 50 毫秒，每秒可輸出 30 幀，支援同時追蹤 10 人，並針對醫療、健身、智慧家居及安全監控設有專屬設定
