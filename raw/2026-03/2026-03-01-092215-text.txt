@@ -1,0 +1,48 @@
+---
+received: 2026-03-01 09:22:15
+type: text
+source: telegram
+---
+
+#AIAgent正在變成基礎設施
+最近幾週的 AI Agent 更新越來越不像單點功能，而是開始形成幾條清楚的發展路線，如果把這些消息放在一起看，可以看到 Agent 正走向「工作系統」。
+
+我大致把最近的變化整理成六條線：
+
+一、瀏覽器與 IDE 正在變成 Agent 的身體
+這條線的訊號越來越強，去年從 Coment, Altas 開始的獨立瀏覽器，到現在 Google 把 Auto Browse 放進 Chrome，讓 Gemini 可以直接執行多步驟網頁任務；Vercel agent-browser 也開始支援 iOS；Cloudflare 把 agent 和 workflow 系統整合。
+
+IDE 明顯的變化是，Apple 把 Claude Agent SDK 整合進 Xcode，這其實很重要，因為它讓 IDE 從編輯器變成「agent-native 開發環境」，不過 Cursor, Antigravity 這類早就在做了，蘋果還是晚了一點。
+
+二、Agent 管理平台開始出現（Agent OS 雛形）
+這週最讓我覺得像系統級產品的更新是 OpenAI Frontier，它在做的事情很像 Agent OS，涵蓋以下功能：
+- shared memory
+- onboarding
+- permissions
+- feedback loop
+- deployment
+
+這代表 Agent 不再只是模型 API，而是開始變成可管理的數位同事系統，Cloudflare workflow + agent 的整合，我認為也是同一條線。
+
+三、多 Agent 協作開始進入產品層
+以前 multi-agent 多半停留在研究或 demo，現在開始進入產品，如 Perplexity Model Council 讓多個 frontier model 同時回答，再做 consensus。這其實是在把「模型不確定性」變成產品功能。
+
+另一個例子是 Firecrawl 支援 parallel agents，可以同時跑數千個 agent 查詢網頁，這代表 multi-agent 正在從概念變成 infrastructure。最近我也在研究 multi-agent 的架構，有前輩很了解的話希望能請教。
+
+四、Coding Agent 正在被標準化與反思
+這條線非常明顯，NVIDIA 團隊大規模使用 Cursor
+ 程式碼產量三倍但 bug rate 沒上升；Cursor 推出 Agent Trace open spec，開始處理 agent 產生程式碼的可追溯性；另一方面 Claude Code 新增 /insights，可以分析一整個月的使用紀錄並提出 workflow 建議。
+
+現在大家開始處理像是 traceability、workflow learning、developer behavior modeling 類型的問題，這些訊號都指向同一件事，就是 coding agent 已經不是實驗，而是長期工具，我從去年開始用 coding agent，自己寫程式的比例隨著模型越厲害逐漸下降，現在也快變成只看 PR 的人了。
+
+五、研究與寫作正在被做成專用工作空間
+OpenAI 推出 Prism 這件事我自己蠻喜歡的，但我發現知道的人不多。Prism 是直接做一個 LaTeX 原生的雲端工作區，把 GPT 5.2 放進專案裡，讓模型看得到文章結構、公式、引用、上下文，然後在那個環境內協助推理、改寫、補引用、找文獻。對研究者來說，差別很大，因為你不用一直把內容搬來搬去，AI 也不再只吃到一段截圖或一段貼上的文字；另一方面 Perplexity 的 Deep Research 也升級與 DRACO benchmark 也在強化研究型 agent 的評估與可靠性。
+
+我認為這兩者是一個訊號，Agent 接下來不一定先從企業流程吃掉世界，反而可能先從研究工作流這種高密度文字和邏輯場景切進去，因為那裡最需要專案脈絡感，前陣子我接到不少需求是來自研究員。
+
+六、自主 Agent 與本地化部署開始成熟
+從 Claude Cowork 到龍蝦爆紅開始，到後面的 Codex App、Cloudflare Sandbox + Moltworker 與 Helius 支援 agent 自動生成 API keys 與錢包還有大大小小的其他專案
+
+這些更新都在解決如何讓 agent 長期存在並自主運作，讓 AI 從需要呼叫變成可以持續存在的 agent，我預估這種框架會是下半年最火的應用趨勢。
+
+如果把這幾週的更新放在一起看，可以明顯感覺到 Agent 正在從介面變成基礎設施，期待接下來 AI 逐漸演進第四階的Innvoators 階段。
