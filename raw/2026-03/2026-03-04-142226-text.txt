@@ -1,0 +1,80 @@
+---
+received: 2026-03-04 14:22:26
+type: text
+source: telegram
+---
+
+▍OpenClaw 省錢實戰：三個玩家教你怎麼不燒錢又把 Agent 用到位
+
+#TLDR
+1. Mac Mini 跑 OpenClaw 對非工程師來說體驗遠勝雲端 Linux 終端機，能看到畫面、能截圖 debug，踩坑效率高很多
+
+2. Tremaine Grant 提出的 Heartbeat Protocol 用每小時 telemetry check 取代傳統 Agile 站會，因為 Agent 時代兩週一個 sprint 太慢了
+
+3. 給每個 Agent 明確的角色定位和一個「北極星目標」，再加上一個專門唱反調的 skeptic Agent，整體產出品質會大幅提升
+
+4. OpenHome 做了開源 AI 智慧音箱，跑在 Raspberry Pi 上，想把 Agent 從螢幕拉到真實世界，靠的是 context 和 memory
+
+5. SaaS 的定價模式正在被 Agent 挑戰，Jason Calacanis 靠 Agent 建議直接砍掉了 Slack 的年費
+
+#節目與來賓背景
+This Week in Startups（TWIST）是矽谷知名天使投資人 Jason Calacanis 主持的創業訪談節目，基本上就是美國創業圈的情報站，什麼熱就聊什麼。共同主持是 Lon Harris。這集找來三位正在第一線玩 OpenClaw 的人：
+
+Jordy Coltman，X 上的創作者，寫了一篇病毒式傳播的文章「I wasted 80 hours and $800 setting up OpenClaw」，行銷背景、完全不會寫程式，踩了一輪坑後整理出新手避雷指南。Tremaine Grant，Pulse 的創辦人兼 CEO，Pulse 是一個讓健身創作者經營社群的 app。他搞了一整套 Agent 虛擬辦公室，用 OpenClaw 跑日常營運。Jesse Leimgruber，OpenHome 的共同創辦人兼 CTO，Stanford 畢業、Thiel Fellow，之前幫 TikTok 進美國市場出過力。OpenHome 做的是開源 AI 智慧音箱，讓你的 Agent 能用語音跟你互動。
+
+#新手第一課別急著上雲端
+Jordy 的經驗我覺得對大部分想玩 OpenClaw 但沒有工程背景的人特別有參考價值。他一開始跟很多人一樣，看到網路上說要開 AWS EC2、搞 Linux 伺服器，就照做了。結果呢？搞不清楚 Linux 終端機在幹嘛，Token 貼上去多一個空格都不知道，出了問題只能截圖丟給 ChatGPT 求救。
+
+後來他改用 Mac Mini，整個體驗翻轉。能直接看到終端機在跑什麼、能接 HDMI 螢幕即時監控、出問題能截圖錄影，debug 效率完全不同等級。
+
+老實說這跟我之前在其他技術工具上的經驗很像。雲端確實便宜又彈性，但對不熟命令列的人來說，那個「看不到在幹嘛」的焦慮感是很真實的。能摸到實體、能看到畫面，心理壓力差很多。
+
+Jason 在節目裡還預測，一兩年內會出現「OpenClaw in a box」的硬體產品，小型機架塞在家裡，裝 20 個 Agent。聽起來很科幻，但想想現在的 NAS 市場，其實邏輯差不多。
+
+#HeartbeatProtocol：Agent 時代的新工作方法論
+Tremaine 這段是整集最有料的部分。
+
+他的核心論點很簡單：Agile 方法論在 Agent 時代太慢了。傳統 Agile 兩週一個 sprint、每天站會、Kanban board 上的 ticket 要花好幾天才能從左移到右。但 Agent 幾分鐘就能完成一張 ticket，你還在排 sprint planning，它已經做完了。
+
+所以他搞了一套叫 Heartbeat Protocol 的東西，核心概念是 telemetry（遙測）。每小時做一次 telemetry check，取代傳統的每日站會。他在 Mac Mini 上跑了四個 Agent，每個都有明確角色：
+
+Nora：負責調度的 CEO 角色，能分配任務、開新 Agent
+Sage：研究員
+Scout：另一個研究員，但重點是社群趨勢，而且她的人設是 skeptic，專門挑戰其他 Agent 的結論
+Salara：品牌聲音把關，所有對外內容都要過她
+然後所有 Agent 都對齊一個叫 North Star 的目標。Pulse 目前的北極星是 partnerships，所以不管 Agent 在做什麼研究或產出，最終都要指向這個方向。
+我覺得這裡面最聰明的設計是 Scout 的 skeptic 角色。Jason 在節目裡也提到 Amazon 內部有那種專門在會議上問刁鑽問題的人，逼大家把思考做得更紮實。給 Agent 一個「你的工作就是質疑其他人」的人設，這個思路很值得抄。
+
+這些角色定義都寫在 soul.md（一個 markdown 檔案）裡。Jordy 還分享了一個技巧：與其自己寫 soul.md，不如先讓 Agent 問你一堆問題，用問答的方式讓它自己整理出最完整的 context。
+
+#把Agent從螢幕拉到真實世界
+Jesse 的 OpenHome 走的是完全不同的路線。他的論點是：Agent 的真正價值在於 context 和 memory。Siri 為什麼爛？因為它沒有 context，每次都要你從頭講。
+
+OpenHome 做了一個跑在 Raspberry Pi 上的開源韌體（firmware），搭配六顆麥克風陣列，能聽到整間房子的對話。它不是又一個 Siri 或 Alexa，它跑的是你自己的 OpenClaw Agent，有完整的記憶和人格。
+
+他在節目裡播了一段 demo 影片：情人節當天，音箱主動跟主人說「你老婆跟她姐說你去年買的花比較大束喔」，然後問要不要訂一束更大的。這種基於 context 的主動提醒，確實是現在的智慧音箱做不到的。
+
+一個有趣的數據：智慧音箱是 iPhone 和筆電之後第三大消費電子產品，全球賣了五億台。但體驗一直很爛，因為都是封閉生態系。OpenHome 的策略就是開源，讓開發者社群來補這個缺。
+
+#SaaS的定價模式要被翻過來了
+節目後半段有一個很實際的討論。Jason 想把公司所有 Slack 訊息、Gmail、Notion 更新全部灌進 Agent，做一個即時的公司狀態儀表板。
+
+結果發現 Slack 的 API 存取要最高等級的方案，一個人一個月 50 美金。他公司 20 個人加 20 個 Agent，一年就是兩萬四千美金。光是聊天軟體。
+
+他的 Agent Roy 直接建議他：換成 Mattermost（Slack 的開源替代品），週末就能搬完，一年授權費 500 美金。直接省了兩萬多。
+
+Jordy 也說他用 Agent 搭了自己的工作 dashboard，砍掉了 80% 他用不到的 Notion 功能，訂閱直接取消。
+
+這個趨勢很值得注意。當每個人都能用 Agent 快速搭建個人化工具的時候，那些靠「功能全但你只用 20%」收費的 SaaS 就會面臨壓力。Jason 講得很直白：SaaS 公司必須把數據的鑰匙交出來，不然就等著被替代。
+
+#我的觀察
+這集最大的 takeaway 對我來說有兩個。
+
+第一，Agent 的管理方法論正在從零開始被建構。Tremaine 的 Heartbeat Protocol 不一定是最終答案，但「傳統開發流程跟不上 Agent 速度」這個問題是真的。誰先跑出一套成熟的 Agent 管理框架，誰就有先發優勢。
+
+第二，硬體會是下一個戰場。不管是 Mac Mini 跑本地 Agent、Raspberry Pi 做智慧音箱，還是未來的「Agent 機架」，把 Agent 從雲端拉到實體世界這件事正在發生。
+
+Token 成本的問題節目開頭點到但沒深入展開，不過 Tremaine 提到一個重要細節：Peter Steinberger（OpenClaw 的創造者，已經加入 OpenAI）讓 OpenAI 的 Mac 訂閱方案可以跑 OpenClaw Agent，這會大幅降低使用成本。後續怎麼演變值得追蹤。
+
+---
+這類 Agent 實戰心得我會持續整理，有興趣的可以訂閱 wilsonhuang .xyz，新文章出來就能第一時間收到。
