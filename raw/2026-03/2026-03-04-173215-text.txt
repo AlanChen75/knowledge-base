@@ -1,0 +1,138 @@
+---
+received: 2026-03-04 17:32:15
+type: text
+source: telegram
+---
+
+紀實攝影感（documentary realism）＋微瑕疵細節＋自然光源。
+下面整理一套可直接使用的「真實照片風格提示詞結構」。
+
+---
+
+一、核心結構公式
+
+主體 + 鏡頭描述 + 光線條件 + 細節紋理 + 色彩設定 + 拍攝器材感 + 排除修圖
+
+---
+
+二、萬用真實感 Prompt 模板（人像）
+
+Extreme close-up portrait of [subject], three-quarter view, natural expression.
+
+Hyper-detailed skin texture with visible pores, subtle imperfections, light freckles, faint wrinkles, natural facial hair stubble.
+
+Soft natural window light grazing across the face, realistic shadows, no studio lighting.
+
+Neutral color science, no crushed blacks, natural skin tones.
+
+Shot on 85mm portrait lens, shallow depth of field, organic sharpness, slight digital grain.
+
+Documentary photography realism.
+
+No heavy retouching, no beauty filters, no artificial smoothing.
+
+The image should feel effortless, unposed, authentic, like a casual everyday photo captured in available light.
+
+---
+
+三、強化「真實感」關鍵詞
+
+加入以下元素會大幅提升真實度：
+
+1️⃣ 細節紋理
+visible pores
+subtle skin texture
+tiny scars
+uneven skin tone
+light sun damage
+fine baby hairs
+slight sweat
+
+2️⃣ 光線設定
+soft window light
+harsh side lighting
+natural ambient light
+overcast daylight
+realistic shadow falloff
+
+3️⃣ 鏡頭語言
+shot on 50mm / 85mm / 100mm macro
+shallow depth of field
+eye-level perspective
+handheld feel
+
+4️⃣ 反修圖關鍵
+no beauty filters
+no artificial smoothing
+no HDR look
+no oversharpening
+natural color rendering
+
+---
+
+四、物品真實感版本（例如球、杯子、耳朵）
+
+Extreme macro close-up of a worn object.
+
+Hyper-detailed surface texture with visible dust, scratches, imperfections, and natural wear.
+
+Harsh outdoor side lighting revealing surface depth.
+
+Neutral color science, realistic contrast.
+
+Shot on 100mm macro lens, ultra shallow depth of field.
+
+Documentary realism.
+
+No artificial enhancement, no smoothing, no stylization.
+
+---
+
+五、中文思維邏輯（給 Gemini 或其他模型用）
+
+如果用中文提示，可這樣寫：
+
+超近距離微距特寫
+可見毛孔與細微瑕疵
+自然窗邊光
+無濾鏡
+紀實攝影風格
+手機隨手拍感
+自然色彩科學
+輕微數位顆粒
+淺景深
+不做修圖
+
+---
+
+六、讓 AI 更像「手機拍的」
+
+加入：
+realistic smartphone photography style
+slight motion imperfection
+imperfect framing
+casual composition
+
+---
+
+七、關鍵觀念
+
+真正讓照片「像真的」不是：
+❌ 超清晰
+❌ 超乾淨
+❌ 完美皮膚
+
+而是：
+✅ 不完美
+✅ 光線真實
+✅ 紋理存在
+✅ 顏色自然
+✅ 無人工修飾痕跡
+
+---
+
+如果你告訴我：
+想拍人像？
+商品？
+生活紀錄？
+社群風格？
