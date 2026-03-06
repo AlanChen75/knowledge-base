@@ -1,0 +1,41 @@
+---
+received: 2026-03-06 11:02:37
+type: text
+source: telegram
+---
+
+使用Claude Code的我原本都在VScode開插件
+
+後來改用CLI跟windows terminal開一堆pane
+
+直到龍蝦流行後
+
+就改串telegram bot變成我最新最順手的IDE
+
+.
+
+這個開發模式真的很順
+
+做了很多實際會用的指令跟功能設計
+
+只要有Claude Code pro就可以通過CLI當接口使用
+
+通過這個玩具ClaudeBot已經幫我幹出20萬行以上的代碼了
+
+.
+
+都是實際在使用的專案~
+
+自己製作的網站流量也是還行，順手貼上來證明自己不是在造輪子
+
+有興趣使用的我把官網貼這: https://jeffrey0117.github.io/ClaudeBot
+
+.
+
+之後有空會慢慢寫文章分享使用方式
+
+大家可以先自行研究
+
+寶藏都在裡面了  歡迎提issue
+
+倉庫地址: https://github.com/Jeffrey0117/ClaudeBot
