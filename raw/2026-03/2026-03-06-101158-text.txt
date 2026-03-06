@@ -1,0 +1,281 @@
+---
+received: 2026-03-06 10:11:58
+type: text
+source: telegram
+---
+
+我的新書，應該是中文第一本龍蝦書在天瓏開始預購了！
+
+我的新書「玩爆你的龍蝦 — 最強 OpenClaw 安裝設定應用實機演練」在天瓏開始預購了。從龍蝦一出來，馬上安裝在 Linux 中，然後第二天立即訂了 Mac Mini，第三天規劃書籍，第四天收到 Mac Mini 開始寫，連續寫了 14 天，終於完成。裡面有大家最想知道的 LINE 完整設定、有介紹好用的 Skills，還有用龍蝦控制其它電腦設備( nodes) 的完整設定。
+
+本書重點：
+
+- 選擇安裝的地方、macOS、Linux、VPS、虛擬機
+- 預先一定要安裝的程式
+- 完整安裝 OpenClaw 步驟
+- Telegram、LINE、LINE 正式域名、WhatsApp、iMessage
+- Tailscale 網路串接，OpenClaw TUI、GUI
+- 一隻龍蝦多個身份：多重 Agents
+- 把龍蝦加入LINE、Telegram 群組成為大家的幫手
+- Skills、Plugins、Skillhub的完整介紹
+- 操作你的電腦，使用龍蝦+Peekaoboo
+- 操作其它電腦、手機、平板，OpenClaw 的 Nodes 設定
+- 讓龍蝦打電話給你，Twilio 的電話設定
+
+天瓏預購的連結如下：
+[https://www.tenlong.com.tw/products/9786267889022?list_name=r-zh_tw](https://www.tenlong.com.tw/products/9786267889022?list_name=r-zh_tw)
+
+歡迎大家參考下面的目錄
+
+# 第一章：從了解 OpenClaw 開始
+
+1-1 什麼是 OpenClaw
+
+1-1-1 為什麼它突然爆紅
+1-1-2 什麼是 Agent
+1-1-3 Coding Agent 是第一代
+1-1-4 Browser Agent 是第二代
+1-1-5 Desktop Agent 是第三代
+1-1-6 OpenClaw Computer Agent 是第四代
+
+1-2 深入認識 OpenClaw
+
+1-2-1 OpenClaw 開發者簡介
+1-2-2 OpenClaw 的歷史
+1-2-3 OpenClaw 可以怎麼用
+
+1-3 OpenClaw 有哪些東西組成
+
+1-4 多機協作：Nodes 架構
+
+1-4-1 什麼是 Node
+1-4-2 為什麼需要 Nodes
+1-4-3 Node 能做什麼
+1-4-4 實際應用場景
+
+1-5 安裝平台的選擇
+
+1-5-1 Mac
+1-5-2 Linux
+1-5-3 Windows
+1-5-4 VPS
+
+1-6 不可忽視的安全警告
+1-7 本章小結
+
+# 第二章：安裝 OpenClaw
+
+2-1 安裝前的準備
+2-1-1 重要概念：Gateway
+2-1-2 硬體配備
+2-1-3 軟體需求
+
+2-2 安裝 OpenClaw 的不同方法
+
+2-2-1 下載與執行官方安裝腳本
+2-2-2 使用 npm 全域安裝
+2-2-3 使用雲端託管服務
+
+2-3 安裝後的設定
+
+2-3-1 基本設定
+2-3-2 進階設定
+2-3-3 安全設定
+2-3-4 使用 Dashboard 管理 OpenClaw
+
+2-4 開始使用 OpenClaw
+
+2-4-1 最高指導原則
+2-4-2 Dashboard 介面
+2-4-3 TUI 介面
+
+2-5 Dashboard 重要元件介紹
+
+2-5-1 Chat 元件
+2-5-2 Control 元件（Overview、Channels、Instances、Sessions、Usage、Cron Jobs）
+2-5-3 Agent 元件（Agents、Skills、Nodes）
+2-5-4 Settings 元件（Config、Debug、Logs）
+
+2-6 在 OpenClaw 中使用 TailScale
+
+2-6-1 安裝 TailScale CLI 工具
+2-6-2 在 OpenClaw 中設定 TailScale
+
+2-7 本章小結
+# 第三章：開始使用 OpenClaw（Telegram、TUI 與 CLI）
+
+3-1 連接第一個通道：Telegram
+
+3-1-1 重要概念：Channels（通道）
+3-1-2 找到 @BotFather
+3-1-3 建立新的 Bot
+3-1-4 取得 Bot Token
+3-1-5 設定 Bot 的隱私模式
+
+3-2 在 OpenClaw 中設定 Telegram
+
+3-2-1 方法一：使用 onboard wizard（推薦新手）
+3-2-2 方法二：使用環境變數
+3-2-3 啟動並測試
+3-2-5 第一次私訊與配對
+
+3-3 在群組中使用 Bot
+
+3-3-1 切換回應模式
+
+3-4 Telegram 疑難排解
+
+3-4-1 Bot 在群組中不回應訊息
+3-4-2 Bot 啟動後停止回應
+
+3-5 啟用網路搜尋功能
+
+3-5-1 為什麼需要網路搜尋
+3-5-2 申請 Brave Search API Key
+3-5-3 設定 API Key
+3-5-4 測試網路搜尋
+
+3-6 使用 TUI 終端介面
+
+3-6-1 啟動 TUI
+3-6-2 TUI 介面說明
+3-6-3 基本操作
+3-6-4 TUI 快捷鍵
+3-6-5 TUI Slash 指令
+3-6-6 執行本地 Shell 指令
+
+3-7 基本 CLI 指令
+
+3-7-1 Gateway 相關指令
+3-7-2 狀態與健康檢查
+3-7-3 通道管理
+3-7-4 配對管理
+3-7-5 日誌查看
+3-7-6 其他常用指令
+3-7-7 指令速查表
+
+3-8 本章小結
+
+3-8-1 本章重點回顧
+3-8-2 本章常用指令
+3-8-3 TUI 快捷鍵速查
+3-8-4 參考資源
+
+# 第四章：連接 LINE 通道
+
+4-1 LINE Messaging API 簡介
+
+4-1-1 本章目標
+
+4-2 建立 LINE 官方帳號
+
+4-2-1 前往 LINE Official Account Manager
+4-2-2 建立官方帳號
+4-2-3 完成初始設定
+4-2-4 允許加入群組
+4-2-5 啟用 Messaging API
+
+4-3 取得 Channel 憑證
+
+4-3-1 進入 LINE Developers Console
+4-3-2 取得 Channel secret
+4-3-3 取得 Channel access token
+4-3-4 Webhook 設定預覽
+
+4-4 關閉自動回應
+
+4-5 使用 OpenClaw TUI 設定 LINE
+
+4-5-1 啟動 OpenClaw TUI
+4-5-2 安裝 cloudflared 和建立 Tunnel
+4-5-3 設定 LINE Plugin
+
+4-6 設定 Webhook 並測試
+
+4-6-1 設定 Webhook URL
+4-6-2 驗證 Webhook
+4-6-3 第一次對話與配對
+
+4-7 疑難排解
+
+4-7-1 Webhook 驗證失敗
+4-7-2 收不到訊息
+4-7-3 Bot 只回覆配對碼
+
+4-8 本章小結
+
+# 第五章：給 OpenClaw 一個家：使用正式域名
+
+5-1 為什麼需要正式域名？
+
+5-1-1 本章目標
+5-1-2 本章流程概覽
+
+5-2 準備工作
+
+5-2-1 你需要準備
+
+5-3 在 Cloudflare 新增你的域名
+
+5-3-1 前往 Cloudflare 網站
+5-3-2 登入 Cloudflare Dashboard
+5-3-3 選擇「Connect Domain」
+5-3-4 輸入你的域名
+5-3-5 設定 AI 爬蟲封鎖
+5-3-6 選擇方案
+5-3-7 確認 DNS 記錄
+5-3-8 記下 Cloudflare 指定的 Nameservers
+
+5-4 到域名註冊商修改 Nameservers
+
+5-4-1 登入 GoDaddy
+5-4-2 找到你的域名
+5-4-3 進入 DNS 管理
+5-4-4 進入名稱伺服器設定
+5-4-5 填入 Cloudflare 的 Nameservers
+5-4-6 確認變更
+5-4-7 等待更新
+5-4-8 確認更新完成
+
+5-5 回到 Cloudflare 確認域名啟用
+
+5-5-1 通知 Cloudflare 你已更新
+5-5-2 等待 DNS 傳播
+5-5-3 確認域名已啟用
+
+5-6 設定 Cloudflare Zero Trust
+
+5-6-1 什麼是 Zero Trust
+5-6-2 確認域名狀態
+5-6-3 設定團隊名稱
+5-6-4 選擇方案
+5-6-5 設定付款方式
+5-6-6 確認購買
+5-6-7 進入 Zero Trust Dashboard
+
+5-7 建立 Cloudflare Tunnel
+
+5-7-1 進入 Tunnel 管理
+5-7-2 選擇通道類型
+5-7-3 為通道命名
+5-7-4 選擇安裝環境
+5-7-5 取得 Token
+
+5-8 使用 Docker 運行 cloudflared
+
+5-8-1 建立工作目錄
+5-8-2 建立 docker-compose.yml
+5-8-3 啟動 Tunnel
+5-8-4 確認容器運行狀態
+5-8-5 回到 Cloudflare 確認連線
+
+5-9 設定 Public Hostname 路由
+
+5-9-1 進入 Tunnel 設定
+5-9-2 新增第一個路由：LINE Webhook
+5-9-3 新增第二個路由：Catch-all 404
+5-9-4 新增第三個路由：LINE Media
+5-9-5 調整路由順序
+5-9-6 確認最終路由列表
+
+5-10 更新 LINE Webhook URL

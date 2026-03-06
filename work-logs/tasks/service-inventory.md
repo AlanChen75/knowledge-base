@@ -1,6 +1,6 @@
 ---
 title: 全系統服務盤點與清理
-status: in_progress
+status: completed
 priority: high
 created: 2026-03-03
 ---

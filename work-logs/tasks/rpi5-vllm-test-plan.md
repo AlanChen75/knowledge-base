@@ -1,8 +1,8 @@
 ---
 title: RPi5 Happy Coder 內外部 API 對比測試計畫
 created: 2026-02-01
-status: in_progress
-priority: high
+status: paused
+priority: low
 ---
 
 # RPi5 Happy Coder 內外部 API 對比測試計畫

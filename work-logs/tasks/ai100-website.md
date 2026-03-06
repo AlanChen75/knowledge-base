@@ -1,6 +1,6 @@
 ---
 title: AI100 講網站建置
-status: in-progress
+status: completed
 priority: high
 started: 2026-02-17
 repo: ai-cooperation/ai100
