@@ -1,0 +1,29 @@
+---
+received: 2026-03-06 11:04:53
+type: text
+source: telegram
+---
+
+Layer 1：文件處理 Skills（必裝）
+這四個是 Anthropic 官方出品，作者強烈推薦所有人先裝這組 ：
+PDF → https://github.com/anthropics/skills/tree/main/skills/pdf
+DOCX → https://github.com/anthropics/skills/tree/main/skills/docx
+PPTX → https://github.com/anthropics/skills/tree/main/skills/pptx
+XLSX → https://github.com/anthropics/skills/tree/main/skills/xlsx
+
+Layer 2：進階實用 Skills
+Skill 名稱 URL
+Frontend Design https://github.com/anthropics/skills/tree/main/skills/frontend-design
+Marketing Skills https://github.com/coreyhaines31/marketingskills
+Claude SEO https://github.com/AgriciDaniel/claude-seo
+NotebookLM Skill https://github.com/PleasePrompto/notebooklm-skill
+Obsidian Skills https://github.com/kepano/obsidian-skills
+Amazon Competitor Analyzer https://github.com/browser-act/skills/blob/main/amazon-competitor-analyzer/SKILL.md
+Skill Prompt Generator https://github.com/huangserva/skill-prompt-generator
+
+Layer 3：作者最推薦的兩個
+這兩個被作者稱為「改變一切」的 Skills ：
+​Skill Creator（最重要！用來自己建立客製化 skill）→ https://github.com/anthropics/skills/tree/main/skills/skill-creator
+Superpowers（讓 Claude 先做需求分析再動手）→ https://github.com/obra/superpowers
+
+作者還有完整版文章可以參考：https://www.browseract.com/blog/best-claude-skills
