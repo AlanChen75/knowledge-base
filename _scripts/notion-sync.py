@@ -196,7 +196,8 @@ def md_to_notion_blocks(content):
             })
         # Code block
         elif line.strip().startswith("```"):
-            lang = line.strip().lstrip("`").strip() or "plain text"
+            lang = line.strip().lstrip("`").strip().lower() or "plain text"
+            lang = LANG_ALIASES.get(lang, lang)
             code_lines = []
             i += 1
             while i < len(lines) and not lines[i].strip().startswith("```"):
@@ -239,8 +240,24 @@ def md_to_notion_blocks(content):
 
 NOTION_LANGUAGES = {
     "python", "javascript", "typescript", "bash", "shell", "json", "yaml",
-    "html", "css", "sql", "java", "c", "cpp", "go", "rust", "ruby",
-    "plain text", "markdown", "dockerfile", "toml",
+    "html", "css", "sql", "java", "c", "c++", "c#", "go", "rust", "ruby",
+    "plain text", "markdown", "docker", "toml", "kotlin", "swift", "r",
+    "php", "scala", "dart", "lua", "perl", "xml", "graphql", "mermaid",
+}
+
+# Common aliases → Notion's expected language name
+LANG_ALIASES = {
+    "dockerfile": "docker",
+    "js": "javascript",
+    "ts": "typescript",
+    "py": "python",
+    "rb": "ruby",
+    "rs": "rust",
+    "sh": "shell",
+    "zsh": "shell",
+    "cpp": "c++",
+    "csharp": "c#",
+    "yml": "yaml",
 }
 
 
