@@ -54,6 +54,33 @@ def load_env():
     return token, db_id
 
 
+# ─── Group classification ───
+_GROUP_KEYWORDS = {
+    "投資": ["投資", "股票", "基金", "理財", "ETF", "巴菲特", "芒格", "殖利率", "存股", "創投", "融資"],
+    "紀錄": ["work-logs/", "工作日誌", "工作計畫", "測試報告", "部署紀錄"],
+    "研究": ["論文", "paper", "研究", "NILM", "學術", "arxiv"],
+    "技術": ["AI", "ML", "GPT", "Claude", "LLM", "vLLM", "GPU", "API", "DevOps", "agent", "bot",
+             "python", "docker", "telegram", "GitHub", "RAG", "OCR", "coding", "code", "自動化",
+             "SHC", "Happy Coder", "deploy", "server", "安全", "tech/"],
+    "商業": ["創業", "CEO", "商業", "策略", "行銷", "零售", "管理", "領導", "企業", "品牌", "產品",
+             "李翔", "戰略", "團隊", "銷售", "廣告", "SEO", "business/"],
+    "學習": ["學習", "成長", "思維", "教育", "閱讀", "寫作", "心得", "修養", "人生", "健康",
+             "英文", "英語", "筆記", "personal/", "mindset/"],
+    "創意": ["dispatch-outputs/", "靈感", "想法", "brainstorm"],
+}
+
+def _classify_group(title, category="", filepath=""):
+    combined = f"{title} {category} {filepath}"
+    # Path-based shortcuts
+    if "work-logs/" in filepath: return "紀錄"
+    if "dispatch-outputs/" in filepath: return "創意"
+    if "research/" in filepath: return "研究"
+    for group, keywords in _GROUP_KEYWORDS.items():
+        if any(kw in combined for kw in keywords):
+            return group
+    return "學習"
+
+
 # ─── Notion API helpers ───
 def notion_request(method, path, token, body=None):
     url = f"{NOTION_API}{path}"
@@ -97,6 +124,11 @@ def create_or_update_page(token, db_id, metadata, content_blocks, page_id=None):
 
     if metadata.get("category"):
         properties["Category"] = {"select": {"name": metadata["category"]}}
+
+    # Auto-classify Group from category/filepath
+    group = _classify_group(metadata.get("title", ""), metadata.get("category", ""), metadata.get("filepath", ""))
+    properties["Group"] = {"select": {"name": group}}
+    properties["Origin"] = {"select": {"name": "git-sync"}}
 
     if metadata.get("tags"):
         properties["Tags"] = {

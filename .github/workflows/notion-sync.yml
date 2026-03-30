@@ -1,0 +1,40 @@
+name: Sync to Notion
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.md'
+      - '!_scripts/**'
+      - '!.github/**'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Sync to Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          SECOND_BRAIN: ${{ github.workspace }}
+        run: |
+          cd _scripts
+          python3 notion-sync.py
+
+      - name: Commit sync state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain _scripts/.notion-sync-state.json)" ]; then
+            git add _scripts/.notion-sync-state.json
+            git commit -m "chore: update notion sync state [skip ci]"
+            git push
+          fi
