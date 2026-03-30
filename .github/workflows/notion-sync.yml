@@ -3,10 +3,7 @@ name: Sync to Notion
 on:
   push:
     branches: [main]
-    paths:
-      - '**.md'
-      - '!_scripts/**'
-      - '!.github/**'
+  workflow_dispatch:
 
 jobs:
   sync:
