@@ -1,0 +1,76 @@
+{
+  "created": "2026-04-10T14:52:44.214057",
+  "git_sha": "e75011c211a52539049bd9cba36e8bde6320fcbd",
+  "topics": [
+    {
+      "slug": "ai-agent",
+      "name": "AI Agent 架構與實戰",
+      "note_count": 53,
+      "char_count": 43322,
+      "prompt_path": "/Users/user/SecondBrain/compiled/.prompts/ai-agent-prompt.md"
+    },
+    {
+      "slug": "llm-tech",
+      "name": "LLM 技術與模型",
+      "note_count": 58,
+      "char_count": 46625,
+      "prompt_path": "/Users/user/SecondBrain/compiled/.prompts/llm-tech-prompt.md"
+    },
+    {
+      "slug": "business-strategy",
+      "name": "商業模式與策略",
+      "note_count": 16,
+      "char_count": 13342,
+      "prompt_path": "/Users/user/SecondBrain/compiled/.prompts/business-strategy-prompt.md"
+    },
+    {
+      "slug": "sustainability-esg",
+      "name": "永續發展與 ESG",
+      "note_count": 7,
+      "char_count": 6060,
+      "prompt_path": "/Users/user/SecondBrain/compiled/.prompts/sustainability-esg-prompt.md"
+    },
+    {
+      "slug": "dev-tools",
+      "name": "開發工具與工作流",
+      "note_count": 38,
+      "char_count": 30735,
+      "prompt_path": "/Users/user/SecondBrain/compiled/.prompts/dev-tools-prompt.md"
+    },
+    {
+      "slug": "knowledge-management",
+      "name": "知識管理與第二大腦",
+      "note_count": 7,
+      "char_count": 6355,
+      "prompt_path": "/Users/user/SecondBrain/compiled/.prompts/knowledge-management-prompt.md"
+    },
+    {
+      "slug": "interior-design",
+      "name": "室內設計與 DesignClaw",
+      "note_count": 5,
+      "char_count": 4831,
+      "prompt_path": "/Users/user/SecondBrain/compiled/.prompts/interior-design-prompt.md"
+    },
+    {
+      "slug": "education-learning",
+      "name": "教育與學習",
+      "note_count": 11,
+      "char_count": 9036,
+      "prompt_path": "/Users/user/SecondBrain/compiled/.prompts/education-learning-prompt.md"
+    },
+    {
+      "slug": "ai-safety",
+      "name": "AI 安全與合規",
+      "note_count": 1,
+      "char_count": 1476,
+      "prompt_path": "/Users/user/SecondBrain/compiled/.prompts/ai-safety-prompt.md"
+    },
+    {
+      "slug": "infra-hardware",
+      "name": "基礎設施與硬體",
+      "note_count": 13,
+      "char_count": 10856,
+      "prompt_path": "/Users/user/SecondBrain/compiled/.prompts/infra-hardware-prompt.md"
+    }
+  ]
+}

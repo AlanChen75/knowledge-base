@@ -3,3 +3,5 @@
 _scripts/.notion-sync-state.json
 _scripts/.sync.log
 security/github-secret-scan-2026-03-06.md
+.venv/
+graphify-out/
