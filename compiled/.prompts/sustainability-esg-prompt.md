@@ -10,12 +10,12 @@
 ```
 ---
 title: "永續發展與 ESG — 知識 Wiki"
-date: 2026-04-12
+date: 2026-04-20
 type: wiki
 content_layer: L3
 topic: sustainability-esg
 source_count: 7
-last_compiled: 2026-04-12
+last_compiled: 2026-04-20
 _skip_sync: true
 ---
 

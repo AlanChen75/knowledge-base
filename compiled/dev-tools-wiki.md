@@ -4,8 +4,8 @@ date: 2026-04-10
 type: wiki
 content_layer: L3
 topic: dev-tools
-source_count: 38
-last_compiled: 2026-04-10
+source_count: 39
+last_compiled: 2026-04-20
 _skip_sync: true
 ---
 
@@ -15,15 +15,17 @@ _skip_sync: true
 
 本主題記錄了 2026 年 1 月至 4 月間對開發工具、CLI 自動化、Bot 架構、DevOps 基礎設施的密集探索。核心趨勢是 AI 驅動的工具正在重塑開發者工作流——從 Claude Code 的 Remote Control 和 Token 優化，到 Telegram Bot 作為 AI 開發入口，再到 Glance、World Monitor 等自架儀表板整合分散的基礎設施。工具選型的判斷標準正從「功能多不多」轉向「能不能嵌入 AI Agent 工作流」。
 
-38 篇筆記橫跨四條主線：(1) AI Coding Agent 的工作流優化（Claude Code Skills、Token Efficient CLAUDE.md、SEO 行銷人實戰）；(2) Telegram Bot 生態與多 Bot 架構（ClaudeBot、SHC TG Bot、Output 攔截器、歸藏方案）；(3) 知識管理與 RAG 工具（Graphify 知識圖譜、Open NotebookLM、NotebookLM 簡報編輯器）；(4) 自架基礎設施與 DevOps（全機服務清單、端口配置、PaddleOCR 部署）。這些工具並非孤立存在，而是圍繞「個人 AI 基礎設施」這一核心目標相互串接。
+39 篇筆記橫跨四條主線：(1) AI Coding Agent 的工作流優化（Claude Code Skills、Token Efficient CLAUDE.md、SEO 行銷人實戰、Claude Design Agentic 設計）；(2) Telegram Bot 生態與多 Bot 架構（ClaudeBot、SHC TG Bot、Output 攔截器、歸藏方案）；(3) 知識管理與 RAG 工具（Graphify 知識圖譜、Open NotebookLM、NotebookLM 簡報編輯器）；(4) 自架基礎設施與 DevOps（全機服務清單、端口配置、PaddleOCR 部署）。這些工具並非孤立存在，而是圍繞「個人 AI 基礎設施」這一核心目標相互串接。
 
 值得注意的是，非工程師使用 AI 工具的案例（律師用 Claude Desktop 處理法律實務、行銷人用 Claude Code 做 SEO、證券業務的報告自動化）正在快速增加。這預示著開發工具的受眾正從程式設計師擴展到所有知識工作者，「工具鏈設計」本身正在成為一項可教學、可複製的技能。
 
 ## 核心概念
 
-### 1. Claude Code 工作流優化
+### 1. Claude Code 與 Claude Design 工作流優化
 
 Claude Code 從單純的 AI 編碼工具演進為完整的開發平台。Remote Control 功能讓使用者透過手機遠端操控 CLI session，端對端加密確保企業安全 [[2026-03-01-claude-code-remote-control]]。9 行 CLAUDE.md 即可減少 63% 輸出 token，透過禁止拍馬屁開場白和空洞結尾，在重度使用場景下節省可觀成本 [[2026-04-03_Claude-Token-Efficient-CLAUDE-md]]。Skills 三層架構（官方必裝 → 進階工具 → Skill Creator）提供了系統化的能力擴展路徑 [[2026-03-06-claude-code-skills-推薦清單]]。
+
+Claude Design 是 Claude Code 的設計平行版本，由 Anthropic 內部設計師 Ryan Mather 實戰驗證並分享七個核心技巧：(1) 開工前先把設計系統餵給 Claude Design 以維持視覺一致性；(2) 工程師即時協作迭代取代傳統「設計→交付→實作」流程；(3) 從成功案例截圖反推 prompt 取代手動指定；(4) 用「再給我三個選項」取代「修改這裡」觸發 Claude 自主探索；(5) 分段設計取代完整 mockup 單次生成；(6) 結合 Figma 元件庫輸出可用程式碼；(7) 保持設計 + 工程的即時回饋循環。定位核心：Claude Design 不是 Figma 升級版，而是「設計版 Claude Code」，心智模型是「指派任務給能做東西的助手」而非「在介面上排版」 [[2026-04-18_Claude-Design實戰七招-Ryan-Mather使用心得]]。
 
 ### 2. Telegram Bot 作為 AI 開發入口
 
@@ -76,6 +78,8 @@ AI 視覺化的「黃金三角指令」——模組化結構、等距視角（Is
 > **賣的不是 AI，而是防止漏錢的保險**：在地商家的五種自動化服務，核心價值是「62% 來電者遇到語音信箱會直接掛斷」這類痛點，而非技術本身。 [[2026-01-26-五個無聊但賺錢的自動化服務]]
 
 > **寫作的核心難點是三層轉換**：腦中的網狀思維 → 樹狀結構 → 線性字串。這個模型同樣適用於理解 AI 如何將知識圖譜（網狀）轉化為結構化輸出（線性）。 [[2026-02-03-寫作之難從網到樹到線]]
+
+> **Claude Design 是「設計版 Claude Code」而非「Figma 升級版」**：心智模型的差異決定使用效果。先建立設計系統作為脈絡、再指派任務而非修改細節、搭配工程師即時迭代——這七個技巧改變的是工作流程的本質，而非工具的操作技巧。 [[2026-04-18_Claude-Design實戰七招-Ryan-Mather使用心得]]
 
 > **Telegram Bot 多 Bot 架構的時間限流很重要**：Output 攔截器每 4.5 秒更新一次以符合 Telegram 20 msg/min 限制，編輯同一則訊息而非發送新訊息，是生產級 Bot 的必備設計。 [[tg-bot-output-interceptor]]
 

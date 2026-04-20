@@ -1,12 +1,12 @@
 {
-  "created": "2026-04-12T01:35:04.600113",
-  "git_sha": "782852c7d34840a59ab6b494b93c9174c21fdc4c",
+  "created": "2026-04-20T01:09:25.039467",
+  "git_sha": "d4b0022d39cfac9cac821f53056565fbe09251d7",
   "topics": [
     {
       "slug": "ai-agent",
       "name": "AI Agent 架構與實戰",
-      "note_count": 53,
-      "char_count": 43322,
+      "note_count": 54,
+      "char_count": 44238,
       "prompt_path": "/home/user/knowledge-base/compiled/.prompts/ai-agent-prompt.md"
     },
     {
@@ -33,15 +33,15 @@
     {
       "slug": "dev-tools",
       "name": "開發工具與工作流",
-      "note_count": 38,
-      "char_count": 30735,
+      "note_count": 39,
+      "char_count": 31651,
       "prompt_path": "/home/user/knowledge-base/compiled/.prompts/dev-tools-prompt.md"
     },
     {
       "slug": "knowledge-management",
       "name": "知識管理與第二大腦",
-      "note_count": 8,
-      "char_count": 7222,
+      "note_count": 9,
+      "char_count": 8104,
       "prompt_path": "/home/user/knowledge-base/compiled/.prompts/knowledge-management-prompt.md"
     },
     {

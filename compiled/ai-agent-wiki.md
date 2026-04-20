@@ -4,8 +4,8 @@ date: 2026-04-10
 type: wiki
 content_layer: L3
 topic: ai-agent
-source_count: 53
-last_compiled: 2026-04-10
+source_count: 54
+last_compiled: 2026-04-20
 _skip_sync: true
 ---
 
@@ -66,6 +66,10 @@ Agent 的實際落地繞不開成本。SHC 混合模式用 HIGH tier（OpenAI gp
 ### 9. Agent 控制台與介面選型
 
 模型聰明是一回事，介面怎麼管理 Session 才決定能否多工。Discord 三層結構（Server → Channel → Thread）天生適合多 Agent 控制台；Telegram 適合單兵快速指令；Line 基本不適合 [[2026-04-06_Discord作為AI-Agent控制台分析]]。Better Agent Terminal (BAT) 則用 Electron + xterm.js 統一管理多個 CLI Agent [[2026-04-09_Better-Agent-Terminal統一CLI調度中心分析]] [[2026-04-09_gemgate-BAT-Copilot整合實作指南]]。
+
+### 10. 垂直領域 Agent 實戰：政府補助助手案例
+
+Hermes Agent（Nous Research 開源框架）× Telegram × LLM Wiki × ChatGPT 的組合，實現了「AI 計劃書補助助手」的完整閉環：每日定期巡查補助公告並下載資料、根據申請須知自動產生訪綱與索資清單、針對特定計劃做即時 PDF 問答、具備長短期記憶追蹤各案進度。架構亮點：Hermes Agent 負責工具呼叫與記憶編排，LLM Wiki 提供領域知識庫，Telegram 作為顧問的行動指令介面。這個案例展示了用開源框架快速組裝「AI 員工」的可行路徑，而非從頭自建 Agent 系統 [[2026-04-18_Hermes-Agent-AI補助案助手架構分析與機會研究]]。
 
 ### 10. WFGY 語義防火牆
 
@@ -132,3 +136,5 @@ SHC 遭遇 OpenAI GPT-5 系列 API 參數變更（`max_tokens` → `max_completi
 6. **成本模型的系統化**：散見於各筆記的成本數據（OpenAI Rate Limits [[2026-01-30-OpenAI-API-Rate-Limits]]、OpenClaw $1,500+ [[2026-04-06_Discord作為AI-Agent控制台分析]]、Token Efficient CLAUDE.md [[2026-04-03_Claude-Token-Efficient-CLAUDE-md]]）需要整合為可量化的 Agent ROI 框架。
 
 7. **BAT × gemgate 整合落地**：統一調度中心的架構已清楚 [[2026-04-09_gemgate-BAT-Copilot整合實作指南]]，但尚未進入實作階段。
+
+8. **垂直領域 Agent 的商業化路徑**：Hermes Agent 補助案助手案例 [[2026-04-18_Hermes-Agent-AI補助案助手架構分析與機會研究]] 展示了以開源框架快速組裝垂直 AI 員工的可行性。SBIR/SIIR/CITD 補助輔導顧問市場有多大？類似模式能否複製到其他高文件負荷的專業服務（如會計師事務所、法律事務所）？
