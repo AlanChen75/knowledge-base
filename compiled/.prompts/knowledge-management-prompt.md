@@ -10,12 +10,12 @@
 ```
 ---
 title: "知識管理與第二大腦 — 知識 Wiki"
-date: 2026-04-20
+date: 2026-04-22
 type: wiki
 content_layer: L3
 topic: knowledge-management
 source_count: 9
-last_compiled: 2026-04-20
+last_compiled: 2026-04-22
 _skip_sync: true
 ---
 
@@ -113,7 +113,39 @@ Claude 讀 PDF → 依論文類型選模板 → 產出結構化筆記
 
 ---
 
-### [3/9] Graphify RAG 機制與對話知識庫方案深度分析
+### [3/9] Graphify 知識圖譜工具分析與 SecondBrain 整合評估
+- **filename**: `2026-04-09_Graphify知識圖譜工具分析與SecondBrain整合評估`
+- **path**: `dispatch-outputs/2026-04-09_Graphify知識圖譜工具分析與SecondBrain整合評估.md`
+- **date**: 2026-04-09
+- **category**: tech/tools
+- **tags**: Graphify, knowledge-graph, Karpathy, knowledge-compilation, SecondBrain, Obsidian, RAG, Leiden
+
+**內容摘要：**
+
+## Graphify 是什麼？
+
+Graphify 是受 Andrej Karpathy「知識編譯」工作流啟發的開源工具，三天內在 GitHub 狂掃 15,000+ Stars。核心理念：與其用 RAG 搜尋，不如讓 LLM 把資料夾「編譯」成結構化知識圖譜。
+
+### 核心架構
+
+1. **語意提取**：用 LLM 掃描每個檔案，提取 entities（概念、人名、術語）和 relationships
+2. **圖譜建構**：用 NetworkX 建構知識圖譜，節點 = 概念，邊 = 關聯
+3. **社群偵測**：用 Leiden 演算法自動發現主題群集（communities）
+4. **查詢導航**：查詢時不讀所有檔案，而是沿圖譜導航到精確節點
+
+### 宣稱特點
+
+| 特點 | 說明 |
+|------|------|
+| Token 消耗降 71.5 倍 | 圖譜導航取代全文讀取 |
+| 不需 Vector DB | 不用調校 Embedding 或維護向量庫 |
+| 全模態 | 20 種程式語言 + PDF + 圖片 + 截圖 |
+| 自動 Backlinks | 生成
+(...截斷)
+
+---
+
+### [4/9] Graphify RAG 機制與對話知識庫方案深度分析
 - **filename**: `2026-04-09_Graphify-RAG機制與對話知識庫方案深度分析`
 - **path**: `dispatch-outputs/2026-04-09_Graphify-RAG機制與對話知識庫方案深度分析.md`
 - **date**: 2026-04-09
@@ -146,38 +178,6 @@ Claude 讀 PDF → 依論文類型選模板 → 產出結構化筆記
 |------|---------|----------|
 | 儲存 | Vector DB（Pinecone/Chroma/Weaviate） | NetworkX 圖（JSON/pickle） |
 | 索引 | Embedding 向量 | Entity +
-(...截斷)
-
----
-
-### [4/9] Graphify 知識圖譜工具分析與 SecondBrain 整合評估
-- **filename**: `2026-04-09_Graphify知識圖譜工具分析與SecondBrain整合評估`
-- **path**: `dispatch-outputs/2026-04-09_Graphify知識圖譜工具分析與SecondBrain整合評估.md`
-- **date**: 2026-04-09
-- **category**: tech/tools
-- **tags**: Graphify, knowledge-graph, Karpathy, knowledge-compilation, SecondBrain, Obsidian, RAG, Leiden
-
-**內容摘要：**
-
-## Graphify 是什麼？
-
-Graphify 是受 Andrej Karpathy「知識編譯」工作流啟發的開源工具，三天內在 GitHub 狂掃 15,000+ Stars。核心理念：與其用 RAG 搜尋，不如讓 LLM 把資料夾「編譯」成結構化知識圖譜。
-
-### 核心架構
-
-1. **語意提取**：用 LLM 掃描每個檔案，提取 entities（概念、人名、術語）和 relationships
-2. **圖譜建構**：用 NetworkX 建構知識圖譜，節點 = 概念，邊 = 關聯
-3. **社群偵測**：用 Leiden 演算法自動發現主題群集（communities）
-4. **查詢導航**：查詢時不讀所有檔案，而是沿圖譜導航到精確節點
-
-### 宣稱特點
-
-| 特點 | 說明 |
-|------|------|
-| Token 消耗降 71.5 倍 | 圖譜導航取代全文讀取 |
-| 不需 Vector DB | 不用調校 Embedding 或維護向量庫 |
-| 全模態 | 20 種程式語言 + PDF + 圖片 + 截圖 |
-| 自動 Backlinks | 生成
 (...截斷)
 
 ---
