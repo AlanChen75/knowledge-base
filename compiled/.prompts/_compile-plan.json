@@ -1,6 +1,6 @@
 {
-  "created": "2026-04-22T01:23:01.545943",
-  "git_sha": "83854748057c4c694f48a0ba271b7adac668497e",
+  "created": "2026-04-23T01:11:02.112415",
+  "git_sha": "8a3b85ac4f751ffab5d5d1385466943b6b4c70cc",
   "topics": [
     {
       "slug": "ai-agent",
@@ -40,8 +40,8 @@
     {
       "slug": "knowledge-management",
       "name": "知識管理與第二大腦",
-      "note_count": 9,
-      "char_count": 8104,
+      "note_count": 10,
+      "char_count": 8937,
       "prompt_path": "/home/user/knowledge-base/compiled/.prompts/knowledge-management-prompt.md"
     },
     {

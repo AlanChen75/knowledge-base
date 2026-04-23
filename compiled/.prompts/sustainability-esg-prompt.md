@@ -10,12 +10,12 @@
 ```
 ---
 title: "永續發展與 ESG — 知識 Wiki"
-date: 2026-04-22
+date: 2026-04-23
 type: wiki
 content_layer: L3
 topic: sustainability-esg
 source_count: 7
-last_compiled: 2026-04-22
+last_compiled: 2026-04-23
 _skip_sync: true
 ---
 
@@ -238,35 +238,7 @@ _skip_sync: true
 
 ---
 
-### [6/7] 低碳永續100講
-- **filename**: `sustainability-100`
-- **path**: `work-logs/tasks/sustainability-100.md`
-- **date**: 
-- **category**: 
-- **tags**: (無)
-
-**內容摘要：**
-
-# 低碳永續100講 — 系統規格與進度追蹤
-
-## 1. 專案概況
-
-| 項目 | 說明 |
-|------|------|
-| 總議題數 | 100 講（10 系列 × 10 講） |
-| 每日產量 | 2 集（DAILY_LIMIT = 2） |
-| 預估完成 | ~43 天（87 集待處理） |
-| 自動排程 | ac-mac systemd timer，每日 10:00 自動執行 |
-| 網站 | https://ai-cooperation.github.io/sustainability-100/ |
-| GitHub repo | github-s100:ai-cooperation/sustainability-100.git |
-| 網站 repo 本地 | `/home/ac-mac/sustainability-100` |
-| 內容目錄 | `/usr/local/bin/ai-hub/content/sustainability100/` |
-| Topics 定義 | `topics.json`（100 筆，含 id/title/outline/subto
-(...截斷)
-
----
-
-### [7/7] 永續100講 — 英文/中文 Podcast 逐字稿功能
+### [6/7] 永續100講 — 英文/中文 Podcast 逐字稿功能
 - **filename**: `sustainability100-transcript`
 - **path**: `work-logs/tasks/sustainability100-transcript.md`
 - **date**: 
@@ -298,6 +270,34 @@ _skip_sync: true
 
 ### 網站整合
 - 在 _episodes/EP*.md front matter 加入 transcr
+(...截斷)
+
+---
+
+### [7/7] 低碳永續100講
+- **filename**: `sustainability-100`
+- **path**: `work-logs/tasks/sustainability-100.md`
+- **date**: 
+- **category**: 
+- **tags**: (無)
+
+**內容摘要：**
+
+# 低碳永續100講 — 系統規格與進度追蹤
+
+## 1. 專案概況
+
+| 項目 | 說明 |
+|------|------|
+| 總議題數 | 100 講（10 系列 × 10 講） |
+| 每日產量 | 2 集（DAILY_LIMIT = 2） |
+| 預估完成 | ~43 天（87 集待處理） |
+| 自動排程 | ac-mac systemd timer，每日 10:00 自動執行 |
+| 網站 | https://ai-cooperation.github.io/sustainability-100/ |
+| GitHub repo | github-s100:ai-cooperation/sustainability-100.git |
+| 網站 repo 本地 | `/home/ac-mac/sustainability-100` |
+| 內容目錄 | `/usr/local/bin/ai-hub/content/sustainability100/` |
+| Topics 定義 | `topics.json`（100 筆，含 id/title/outline/subto
 (...截斷)
 
 ---
