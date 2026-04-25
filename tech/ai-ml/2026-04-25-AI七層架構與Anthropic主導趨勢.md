@@ -1,0 +1,154 @@
+---
+title: "AI 應用架構發展趨勢 v2 — Anthropic 主導的七層 stack 與課程敘事整合"
+date: 2026-04-25
+category: tech/ai-ml
+tags: [AI架構, agent-stack, anthropic-standard, MCP, SKILL.md, AGENTS.md, ECC, Google-Skills, harness-engineering, 課程敘事, 七層架構]
+type: research
+version: 2.0
+---
+
+# AI 應用架構發展趨勢 v2 — 七層 stack 與 Anthropic 主導趨勢
+
+## 📌 摘要
+
+2026 年 AI 應用架構正在分層化，形成七層 stack（L1 模型 → L7 應用）。**最關鍵的洞察**：L1–L5 五層的核心標準幾乎都是 Anthropic 定義的開放規範（MCP、SKILL.md、AGENTS.md、CLAUDE.md、harness engineering），業界正在跟進採用，Google Cloud Next 2026 公開承認用 Anthropic 的 SKILL.md 格式。L6–L7 是這套基建之上長出來的應用層。對個人 skill pack、企業培訓、學術論文工作流而言，**選擇 Anthropic 開放標準 = 選擇跨平台未來相容**。
+
+## 🔑 關鍵要點
+
+1. **七層 stack 採呼叫鏈視角**（OSI-style）：L7 應用 → L6 平台 → L5 Agent 身份 → L4 Skills 能力 → L3 框架 → L2 協議 → L1 模型
+2. **Anthropic 主導 L1–L5**：MCP（L2）、Claude Agent SDK + workflow patterns 五大命名（L3）、SKILL.md（L4）、CLAUDE.md/AGENTS.md（L5）皆由 Anthropic 開源並成為業界標準
+3. **L4 Skills 是 2026 最熱的一層**：Google Cloud Next 2026（4/22-23）發布 Agent Skills repo，**公開承認採用 Anthropic 開源格式**，這是大廠生態裡少見的事
+4. **ECC（Everything Claude Code, 100K stars）跨 L3-L5 三層**：38 agents + 156 skills + 72 commands，跨 Claude Code/Cursor/Codex/OpenCode/Gemini 五工具
+5. **harness engineering 核心信念**（Anthropic 提出）：harness 每個元件都隱含「對模型不能做什麼」的假設，**模型變強，編排應該變薄**
+6. **歷史對照**：Web 1.0（W3C）→ Cloud（AWS）→ Container（Google→CNCF）→ **Agent（2024–2026, Anthropic）**
+
+## 💬 七層架構視覺化
+
+```
+┌─────────────────────────────────────────────────┐
+│ L7. Application / Vertical Agent                │
+│     垂直應用 = Hermes、DesignClaw、Devin、Cursor │
+├─────────────────────────────────────────────────┤
+│ L6. Harness / Managed Platform                  │
+│     託管平台 = Managed Agents、Deep Agents Deploy│
+├─────────────────────────────────────────────────┤
+│ L5. Agent Definition (Identity + Behavior)      │
+│     身份檔 = AGENTS.md、CLAUDE.md、ECC agents/   │
+├─────────────────────────────────────────────────┤
+│ L4. Skills / Capability Modules                 │
+│     能力包 = SKILL.md、Google Skills、ECC skills/│
+├─────────────────────────────────────────────────┤
+│ L3. Orchestration / Framework                   │
+│     編排框架 = LangGraph、Claude Agent SDK       │
+├─────────────────────────────────────────────────┤
+│ L2. Protocols / Tools / Memory                  │
+│     管線基建 = MCP、A2A、Vectorize、Mem0         │
+├─────────────────────────────────────────────────┤
+│ L1. Foundation Model & Inference                │
+│     模型 = Claude、Qwen3、Workers AI             │
+└─────────────────────────────────────────────────┘
+```
+
+## 🧠 概念連結
+
+- **Anthropic 主導觀察**：MCP（L2，2024/11 創立 → 2025/12 捐 Linux Foundation）、SKILL.md（L4，Google Cloud Next 2026 採用）、CLAUDE.md/AGENTS.md（L5，ECC 讓五工具共讀）構成完整的標準鏈
+- **L4 Skills 證據鏈**：Anthropic 開源 → LangChain Deep Agents Deploy 採用 → Google Cloud Next 2026 公開採用 → ECC 156 skills 採用 → OneSkill / Orchestra Research 跟進
+- **L3 是 Alan 第一次明確意識到的層**：Claude Agent SDK 把 L3 包得極薄，所以一直感覺不到自己在編排。LangGraph、CrewAI 是「裸露的 L3」
+- **harness engineering**：Anthropic 自家 Claude 4.5→4.6 過程中把 Planner/Generator/Evaluator 三 agent harness 簡化（拿掉 sprint decomposition），印證「模型變強，編排變薄」原則
+- **Skills 三種同名陷阱**：Google「Skills」現在指三個東西——Agent Skills repo（L4）、Chrome Skills（user prompt）、skills.google（訓練平台），要分清楚
+
+## 🔗 與 Alan 工作的連結
+
+### 你目前的 Stack 位置
+| 層 | 你在用什麼 | 評估 |
+|---|---|---|
+| L1 | Claude（生產）+ Cloudflare Qwen3-30B（消費）| ✅ 雙模型策略很穩 |
+| L2 | MCP × Vectorize × R2 × D1 | ✅ 月成本 $0，已驗證 |
+| L3 | Claude Agent SDK + Claude Code | ✅ 跟著 Anthropic 主線走 |
+| L4 | 自建 skill pack（543 方法學、會計三表、Quarto 論文）| ⚠️ 建議用 SKILL.md 標準格式重封 |
+| L5 | CLAUDE.md（Claude Code 專案配置）| ⚠️ 建議加 AGENTS.md 並存 |
+| L6 | 自建 harness（Skill+Subagent+Commands+四課程系統）| ⚠️ 是時候考慮平台化或分軌 |
+| L7 | 四課程 + 四網站 + Hermes-style 補助助手構想 | ✅ 多場景驗證中 |
+
+### 課程敘事整合（四課程差異化切入）
+
+**AI 四級課程（基礎）**：用「保險資訊全球站」拆七層做示範，讓學員看到同一產品其實是七層疊加
+
+**AI 永續兩級課程**：把 543 方法論、TCFD、GRI、SBTi 封裝成 SKILL.md，從「每年重做」變「可資產化、可授權」
+
+**AI 智慧製造三級課程**：HTF-CNN 包成 MCP server + NILM 標註 skill + 工廠設備 AGENTS.md，跨工廠重用——**也是 PhD 論文的工程價值論點**
+
+**AI 論文研究三級課程**：把七維度專家審查矩陣、引用驗證框架、期刊評估封裝成 SKILL.md + 每篇論文的 AGENTS.md，從研究者轉為研究方法論教育者的關鍵資產
+
+### 共通敘事骨架
+> Web 1.0 標準是 W3C 定的（HTTP/HTML/CSS）
+> 雲端時代標準是 AWS 定的（S3 API/Lambda/IAM）
+> Agent 時代（2024–2026）標準正在被 Anthropic 定（MCP/SKILL.md/AGENTS.md/harness engineering）
+> 學員今天用 Anthropic 開放標準封裝自己的 know-how → 在新基建層自動取得跨平台優勢
+
+### Skill pack 即教材（一份內容四種變現）
+| 角色 | 看到的東西 |
+|---|---|
+| 學員（消費者）| 課程影片 + 操作示範 |
+| 進階學員 | 直接拿 SKILL.md 在自己 Claude Code 跑 |
+| 企業客戶 | 授權 skill pack + 客製化 AGENTS.md |
+| 同業老師 | 共建 skill marketplace（仿 OneSkill）|
+
+## ✅ 行動項目
+
+### 立即可做（本週）
+- [ ] 採用 SKILL.md 標準格式重新封裝現有 skill pack（543 方法學、會計三表、Quarto 論文），參考 ECC 156 skills 目錄結構作骨架
+- [ ] 每個 Claude Code 專案 root 加 AGENTS.md（與 CLAUDE.md 並存，內容對齊）
+- [ ] 把這份研究做成課程通用導論（5–10 分鐘版），四個課程開頭都用
+
+### 一個月內
+- [ ] HTF-CNN 包 MCP server：模型推論做成 MCP 工具 + NILM 標註 skill + 工廠設備 AGENTS.md 範本，作為智慧製造課程 capstone
+- [ ] 永續顧問 skill pack 1.0：TCFD、GRI、SBTi 標準作業流程拆成獨立 SKILL.md 模組
+- [ ] 論文工作流 skill pack 1.0：七維度審查矩陣、引用驗證、期刊評估封裝起來
+
+### 三個月內
+- [ ] 評估自建 harness 平台化：做成 ECC-style 開源 plugin（100K stars 路）？或保留私有作為授權 IP？
+- [ ] 建立中文 + 永續/製造/學術三領域 skill marketplace 雛型（仿 OneSkill）
+- [ ] 解決 Claude Code ↔ Claude.ai context gap：用 AGENTS.md + 同步 SKILL.md 作為兩端共讀檔
+
+## 📝 我的註解與思考
+
+這份研究的真正價值不在「七層架構」本身，而在 **Anthropic 主導層級的觀察**——這個觀察把「我為什麼用 Claude Code」從「個人偏好」升級成「**對齊正在成形的業界標準**」的策略選擇。
+
+對個人定位的影響：你不是「Claude 的使用者」，你是「**Anthropic 標準的早期採用者**」。這個身份轉換有商業價值——客戶眼裡是「鎖定一家 vs 跨平台資產」的差別，後者好賣很多。
+
+對教學的影響：這個敘事比「ChatGPT 怎麼用」高一個層級，**不是技術細節，是基建路線判斷**，可以同時用在永續、製造、學術三個截然不同的領域，因為它解決的是共同的「個人 know-how 怎麼資產化」這個元問題。
+
+風險警覺：Anthropic 主導 ≠ 永遠贏。MCP 已經捐給 Linux Foundation（聰明），但 SKILL.md 還沒。**自建 harness 路線是聰明對沖**——研究用自建，企業客戶交付用 Managed 平台，雙軌並行。
+
+## 🔗 延伸閱讀（知識庫）
+
+- [[2026-04-22-GitHub-Cloudflare-零成本全棧架構]] — Alan 在 L1+L2 的位置實證
+- [[2026-04-18_Hermes-Agent-AI補助案助手架構分析與機會研究]] — L7 垂直應用案例
+- [[2026-02-06-OpenClaw-AI-Agent-新時代思考]] — L3 框架的社群變體
+- [[2026-01-28-AI-Agent-架構分析-Clawdbot-vs-Happy-Coder]] — L3 編排比較
+- [[2026-01-28-增強型-Multi-Agent-系統設計]] — L3 多代理設計
+- [[2026-01-31-claude-code-agent-setup]] — L4+L5 配置實作
+- [[2026-03-01-ai-agent-infrastructure-trend]] — 整體趨勢觀察
+- [[2026-04-01_Claude-Code會計三表案例分析]] — L4 skill 領域落地
+- [[2026-04-25-Pascal-Editor-開源-3D-建築編輯器]] — L6 harness 借鑑
+- [[2026-04-25-Chartbrew-開源-BI-儀表板分析]] — L3+L4 模組分層借鑑
+
+## ℹ️ 原文資訊
+
+- **研究來源**：整合 12 個外部資料來源 + 知識庫內 13 篇相關筆記
+- **關鍵外部來源**：
+  1. Hieu TRAN, *The Agent Stack in 2026: Layers, Harnesses, and Where You Actually Build*, Dev.to (2026-04-14)
+  2. Romain Sestier, *120+ Agentic AI Tools Mapped Across 11 Categories*, StackOne Blog (2026-02-08)
+  3. Anthropic, *Building Effective Agents* (2024)
+  4. Anthropic, *Harness Design for Long-Running Application Development* (2026-04)
+  5. Anthropic, *Scaling Managed Agents: Decoupling the brain from the hands* (2026-04-08)
+  6. LangChain, *Deep Agents Deploy* (2026-03)
+  7. Google Cloud Blog, *Level Up Your Agents: Announcing Google's Official Skills Repository* (2026-04-22)
+  8. Augment Code, *Everything Claude Code hits 100K stars* (2026-03-23)
+  9. ECC GitHub: github.com/affaan-m/everything-claude-code (38 agents, 156 skills, 72 commands)
+  10. Rutgers University, *AIOS: LLM Agent Operating System*, COLM 2025
+- **研究時間**：2026-04-25
+- **版本記錄**：
+  - v1（上午）：初版七層架構（L4=Agent、L5=Skills，業界共識順序）
+  - v2（下午）：採用呼叫鏈視角（L4=Skills、L5=Agent，OSI-style）；加入 ECC 與 Google Skills；加入 Anthropic 主導層級分析章節；加入課程敘事整合章節
