@@ -10,12 +10,12 @@
 ```
 ---
 title: "室內設計與 DesignClaw — 知識 Wiki"
-date: 2026-04-23
+date: 2026-04-26
 type: wiki
 content_layer: L3
 topic: interior-design
 source_count: 5
-last_compiled: 2026-04-23
+last_compiled: 2026-04-26
 _skip_sync: true
 ---
 
@@ -79,7 +79,38 @@ DesignClaw 要套用同樣的框架，切入台灣危老都更的室內裝修設
 
 ---
 
-### [2/5] ComfyUI 室內設計渲染技術規劃
+### [2/5] DesignClaw ComfyUI 整合架構
+- **filename**: `2026-04-04_DesignClaw-ComfyUI整合架構`
+- **path**: `dispatch-outputs/2026-04-04_DesignClaw-ComfyUI整合架構.md`
+- **date**: 2026-04-04
+- **category**: tech/ai-ml
+- **tags**: DesignClaw, ComfyUI, SDXL, ControlNet, Render-Agent, 室內設計, AI渲染
+
+**內容摘要：**
+
+# DesignClaw ComfyUI 整合架構
+
+## 摘要
+
+DesignClaw 的 Render Agent 層已完成實作，透過 ComfyUI REST API + WebSocket 將 SDXL RealVisXL V5.0 整合進室內設計渲染流水線。支援 dual ControlNet（Canny 結構線 + Depth 空間感）與可選的 IP-Adapter 風格轉移，針對六種日式簡約空間類型各自調校 prompt 和參數。目標部署機器為 ac-3090（RTX 3090, 24GB VRAM）。
+
+---
+
+## 1. 完整架構：ComfyUI 整合到 DesignClaw Render Agent
+
+```
+DesignClaw Pipeline
+───────────────────────────────────────────────────────────
+平面圖輸入（JPG/PNG）
+    │
+    ▼
+[Render Agent — render_agent.py]
+    │  ├── 載入 workflow template (japanes
+(...截斷)
+
+---
+
+### [3/5] ComfyUI 室內設計渲染技術規劃
 - **filename**: `2026-04-04_ComfyUI室內設計渲染技術規劃`
 - **path**: `dispatch-outputs/2026-04-04_ComfyUI室內設計渲染技術規劃.md`
 - **date**: 2026-04-04
@@ -108,37 +139,6 @@ DesignClaw 要套用同樣的框架，切入台灣危老都更的室內裝修設
 
 | 特性 | SD 1.5 | SDXL | Flux.1-dev |
 |------|--------|------|---
-(...截斷)
-
----
-
-### [3/5] DesignClaw ComfyUI 整合架構
-- **filename**: `2026-04-04_DesignClaw-ComfyUI整合架構`
-- **path**: `dispatch-outputs/2026-04-04_DesignClaw-ComfyUI整合架構.md`
-- **date**: 2026-04-04
-- **category**: tech/ai-ml
-- **tags**: DesignClaw, ComfyUI, SDXL, ControlNet, Render-Agent, 室內設計, AI渲染
-
-**內容摘要：**
-
-# DesignClaw ComfyUI 整合架構
-
-## 摘要
-
-DesignClaw 的 Render Agent 層已完成實作，透過 ComfyUI REST API + WebSocket 將 SDXL RealVisXL V5.0 整合進室內設計渲染流水線。支援 dual ControlNet（Canny 結構線 + Depth 空間感）與可選的 IP-Adapter 風格轉移，針對六種日式簡約空間類型各自調校 prompt 和參數。目標部署機器為 ac-3090（RTX 3090, 24GB VRAM）。
-
----
-
-## 1. 完整架構：ComfyUI 整合到 DesignClaw Render Agent
-
-```
-DesignClaw Pipeline
-───────────────────────────────────────────────────────────
-平面圖輸入（JPG/PNG）
-    │
-    ▼
-[Render Agent — render_agent.py]
-    │  ├── 載入 workflow template (japanes
 (...截斷)
 
 ---

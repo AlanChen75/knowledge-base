@@ -1,6 +1,6 @@
 {
-  "created": "2026-04-23T01:11:02.112415",
-  "git_sha": "8a3b85ac4f751ffab5d5d1385466943b6b4c70cc",
+  "created": "2026-04-26T01:10:19.246753",
+  "git_sha": "5bcd926c696ad0d90638c2cd74724828cdd2c9d0",
   "topics": [
     {
       "slug": "ai-agent",
@@ -12,8 +12,8 @@
     {
       "slug": "llm-tech",
       "name": "LLM 技術與模型",
-      "note_count": 58,
-      "char_count": 46625,
+      "note_count": 59,
+      "char_count": 47500,
       "prompt_path": "/home/user/knowledge-base/compiled/.prompts/llm-tech-prompt.md"
     },
     {
@@ -33,8 +33,8 @@
     {
       "slug": "dev-tools",
       "name": "開發工具與工作流",
-      "note_count": 39,
-      "char_count": 31651,
+      "note_count": 41,
+      "char_count": 33240,
       "prompt_path": "/home/user/knowledge-base/compiled/.prompts/dev-tools-prompt.md"
     },
     {

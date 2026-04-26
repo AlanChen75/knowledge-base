@@ -10,12 +10,12 @@
 ```
 ---
 title: "知識管理與第二大腦 — 知識 Wiki"
-date: 2026-04-23
+date: 2026-04-26
 type: wiki
 content_layer: L3
 topic: knowledge-management
 source_count: 10
-last_compiled: 2026-04-23
+last_compiled: 2026-04-26
 _skip_sync: true
 ---
 
