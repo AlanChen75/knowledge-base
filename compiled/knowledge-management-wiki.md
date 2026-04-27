@@ -4,8 +4,8 @@ date: 2026-04-23
 type: wiki
 content_layer: L3
 topic: knowledge-management
-source_count: 10
-last_compiled: 2026-04-23
+source_count: 11
+last_compiled: 2026-04-27
 _skip_sync: true
 ---
 
@@ -17,7 +17,7 @@ _skip_sync: true
 
 在工具與架構層面，SecondBrain 系統已建立從筆記收集、分類、到 Notion 同步的完整管線，並進一步延伸出「GitHub 知識工廠 + Cloudflare 學員入口」的零成本全棧架構——以 GitHub 作為知識生產端（Obsidian 筆記 + Actions 自動化），以 Cloudflare（Workers AI、Vectorize、D1）作為知識消費端（語意搜尋、問答、Podcast 式輸出）。Graphify、Open NotebookLM 等新工具則代表下一代可能性：知識圖譜自動生成、Podcast 式知識輸出、語義防火牆品質保障。[[2026-04-22-GitHub-Cloudflare-零成本全棧架構]] [[2026-04-09_Graphify知識圖譜工具分析與SecondBrain整合評估]] [[2026-01-25-open-notebookllm]]
 
-目前的發展階段是「基礎管線已通，消費端正在上線」。SecondBrain 的收集→分類→同步已穩定運作，GitHub Actions 驅動的自動化編譯（wiki、題庫、圖譜）正在落地，下一步是 Cloudflare Vectorize 的語意搜尋層與 Workers AI 的即時問答能力疊加上去。最新的認識更清晰：不同搜尋技術解決不同問題——BM25 找精確位置、向量搜尋找語意鄰近、知識圖譜回答關聯理由——三者是互補疊加關係。[[2026-04-10_知識庫搜尋三層機制與領域差異分析]] [[2026-02-03-寫作之難從網到樹到線]]
+目前的發展階段是「基礎管線已通，消費端正在上線」。SecondBrain 的收集→分類→同步已穩定運作，GitHub Actions 驅動的自動化編譯（wiki、題庫、圖譜）正在落地，下一步是 Cloudflare Vectorize 的語意搜尋層與 Workers AI 的即時問答能力疊加上去。最新的認識更清晰：不同搜尋技術解決不同問題——BM25 找精確位置、向量搜尋找語意鄰近、知識圖譜回答關聯理由——三者是互補疊加關係。2026 年 4 月下旬新增 Meeting Capture Studio SDD，展示了「會議現場 → 個人術語庫」的自學習知識萃取管線，為知識管理增添了「動態輸入端」的重要維度。[[2026-04-10_知識庫搜尋三層機制與領域差異分析]] [[2026-02-03-寫作之難從網到樹到線]] [[2026-04-26-Meeting-Capture-Studio-SDD-規格書]]
 
 ## 核心概念
 
@@ -57,6 +57,12 @@ Open NotebookLM 展示了知識管理的多模態可能性：輸入端支援 PDF
 
 已建立的知識管理基礎設施：筆記收集→自動分類→Notion 同步→GitHub Actions 自動編譯（wiki / 題庫 / 圖譜）→Cloudflare 消費端部署。與 Karpathy 式 LLM Knowledge Base 的關鍵差異在於「結構由人定義 vs 結構由 LLM 湧現」。目前採用人定義結構 + LLM 輔助分類的混合模式。[[knowledge-management-comparison]] [[2026-04-09_Graphify知識圖譜工具分析與SecondBrain整合評估]] [[2026-04-22-GitHub-Cloudflare-零成本全棧架構]]
 
+### 會議知識自學習管線（Meeting Capture Studio）
+
+Meeting Capture Studio SDD 定義了一條從「Google Meet 字幕」到「個人術語庫」的完整知識萃取路徑：Chrome Extension 無縫抓取字幕（免 STT 成本）→ LLM（Workers AI）+ TF-IDF/jieba 術語提取 → 四層信心分層校正（L0 觀察 / L1 候選 / L2 正式 / L3 核心）→ D1 + Notion + GitHub 雙鏡像儲存 [[2026-04-26-Meeting-Capture-Studio-SDD-規格書]]。
+
+這套架構的核心創新是「自學習迴路」：每次會議的術語校正回饋到後續提取上下文，讓術語表隨使用者的特定領域知識逐步個人化，無需微調模型。四層信心分層設計讓 LLM 和人工可在不同層次介入，避免「全自動但不可信」或「全手動但太費力」的兩極困境。這是對 SecondBrain 現有「靜態筆記輸入」管線的「動態會議輸入」補充。 [[2026-04-26-Meeting-Capture-Studio-SDD-規格書]]
+
 ### Paper Pipeline vs SecondBrain 工作流對照
 
 一位獸醫學研究者用 Claude Code 打造的 Paper Pipeline，提供了學術場景的知識管理參照：學術期刊 RSS 訂閱→手機 Slack 分流決策（✅標準整理 / 🔬深度分析 / 🗑️丟棄）→Claude 自動處理→Zotero 歸檔＋Notion 摘要。與 SecondBrain 的核心差異：來源差異（學術 RSS vs 社群貼文）、分流機制（Slack emoji vs dispatch-outputs）、深度控制（三級 vs 統一標準格式）、歸檔整合（Zotero 學術引用 vs 無）。核心洞見：分流決策是知識品質的核心閘門，而非後端的整理格式。[[2026-04-17_Paper-Pipeline工作流對照分析]]
@@ -79,6 +85,8 @@ Open NotebookLM 展示了知識管理的多模態可能性：輸入端支援 PDF
 
 > **分流決策是知識品質的核心閘門**——Paper Pipeline 的三級 emoji 分流（標準整理/深度分析/丟棄）揭示：輸入篩選的精準度遠比後端整理格式更重要。7 天不分流就自動丟棄的設定，則解決了知識管理中「稍後再看」堆積問題。[[2026-04-17_Paper-Pipeline工作流對照分析]]
 
+> **會議是知識管理的漏網輸入端**——SecondBrain 目前擅長處理「有意識地記下的筆記」，但日常會議中大量隱性知識（術語約定、決策脈絡、領域慣例）從未被系統化。Meeting Capture Studio 的四層信心分層 + 自學習迴路正是針對這個缺口：讓 AI 在背景自動萃取，人工只需確認最核心的 L3 術語，達到「低介入、高覆蓋」的知識積累。[[2026-04-26-Meeting-Capture-Studio-SDD-規格書]]
+
 ## 跨筆記關聯
 
 **GitHub + Cloudflare 架構是 SecondBrain 管線的「消費端延伸」**。[[2026-04-22-GitHub-Cloudflare-零成本全棧架構]] 所描述的全棧架構，本質上是將 [[knowledge-management-comparison]] 和 [[2026-04-09_Graphify知識圖譜工具分析與SecondBrain整合評估]] 提到的「知識編譯輸出」落地到實際部署中——GitHub Actions 自動化 compile.py 產生 wiki，Graphify 產生圖譜，然後透過 webhook 推送到 Cloudflare 消費端。這是整個 knowledge-management 主題最具可落地性的架構藍圖。
@@ -93,6 +101,8 @@ Open NotebookLM 展示了知識管理的多模態可能性：輸入端支援 PDF
 
 **WFGY 診斷框架適用於所有 RAG 路線**。無論採用 Vector RAG（[[2026-03-30_悠識RAG系統規劃]]）、Graph RAG（[[2026-04-09_Graphify-RAG機制與對話知識庫方案深度分析]]）還是 Cloudflare Vectorize（[[2026-04-22-GitHub-Cloudflare-零成本全棧架構]]），[[2026-03-01-WFGY-RAG-16問題清單]] 的 16 種故障模式都是通用的品質檢查清單。
 
+**Meeting Capture Studio 是 GitHub + Cloudflare 架構的「動態輸入端」延伸**。[[2026-04-22-GitHub-Cloudflare-零成本全棧架構]] 已建立「靜態筆記輸入 → Cloudflare 消費端」管線，而 [[2026-04-26-Meeting-Capture-Studio-SDD-規格書]] 補充了「動態會議輸入 → D1 術語庫 → Cloudflare Workers AI」支路。兩者共享 Cloudflare 生態，月成本同為 $0，術語庫儲存於 D1 可直接供 Workers AI 問答引用，形成「外部知識（筆記）+ 內部知識（術語）」雙軌輸入的完整架構。
+
 ## 待探索方向
 
 - **Cloudflare Vectorize 接入 SecondBrain 的實作**：[[2026-04-22-GitHub-Cloudflare-零成本全棧架構]] 描述了使用 Vectorize 5M 向量進行語意搜尋的架構，具體如何將 SecondBrain 的 wiki 和筆記向量化並建立查詢介面，是最優先的落地實作。
@@ -102,3 +112,4 @@ Open NotebookLM 展示了知識管理的多模態可能性：輸入端支援 PDF
 - **知識編譯的增量更新機制**：Karpathy 式編譯是全量重建，當筆記量增長到數百篇後，如何實現增量編譯（只重新編譯受影響的 wiki 頁面）。GitHub Actions 的 matrix 策略可能是解法之一。[[2026-04-22-GitHub-Cloudflare-零成本全棧架構]]
 - **Open NotebookLM 與 SecondBrain 的整合**：利用 Podcast 生成能力，將每週新增筆記自動轉為音訊摘要，適合通勤時收聽；可整合到 GitHub Actions 管線中自動觸發。[[2026-01-25-open-notebookllm]]
 - **跨領域知識管線的移植性**：Paper Pipeline 針對學術論文優化，SecondBrain 針對社群知識優化 [[2026-04-17_Paper-Pipeline工作流對照分析]]。是否可以開發一套通用的「知識管線元框架」，讓用戶依場景組合模組？Zotero 整合層（學術引用管理）值得評估加入 SecondBrain。
+- **Meeting Capture Studio 與 SecondBrain 的整合實作**：術語庫儲存於 D1 後，如何自動觸發 SecondBrain 的筆記分類更新（新術語 → 對應主題的 wiki 關鍵詞補充）？以及四層信心分層的 L3 核心術語如何成為 Notion 同步的結構化欄位？[[2026-04-26-Meeting-Capture-Studio-SDD-規格書]]

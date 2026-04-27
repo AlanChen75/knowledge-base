@@ -10,12 +10,12 @@
 ```
 ---
 title: "AI 安全與合規 — 知識 Wiki"
-date: 2026-04-26
+date: 2026-04-27
 type: wiki
 content_layer: L3
 topic: ai-safety
 source_count: 1
-last_compiled: 2026-04-26
+last_compiled: 2026-04-27
 _skip_sync: true
 ---
 

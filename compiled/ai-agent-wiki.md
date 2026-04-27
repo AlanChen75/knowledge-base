@@ -4,8 +4,8 @@ date: 2026-04-10
 type: wiki
 content_layer: L3
 topic: ai-agent
-source_count: 54
-last_compiled: 2026-04-20
+source_count: 55
+last_compiled: 2026-04-27
 _skip_sync: true
 ---
 
@@ -15,7 +15,7 @@ _skip_sync: true
 
 AI Agent 正從「對話式 AI」演進為「自主行動 AI」，標誌著軟體開發與知識工作的典範轉移。Jensen Huang 將此定位為 AI 三次拐點中的第三波——從生成式 AI 到推理能力再到 Agent，Token 消耗量將比前一代增加百萬倍 [[2026-03-06-jensen-huang-morgan-stanley-tmt]]。Ethan Mollick 更直言：「使用 AI」的定義已從「在對話框裡聊天」變成「指派任務給能自主使用工具的 Agent」[[2026-03-01-ethan-mollick-agentic-era-ai-guide]]。
 
-本知識庫記錄了從 2026 年 1 月至 4 月的密集探索歷程，涵蓋三條主線：(1) Super Happy Coder (SHC) 多 Agent 教學系統的設計、部署與迭代；(2) DesignClaw 室內設計自動化管線的 7-Agent Pipeline 實作；(3) Claude Code、OpenClaw 等 AI Agent 工具的實戰方法論。這些筆記共同勾勒出一幅從理論框架到生產部署的完整 Agent 實踐地圖。
+本知識庫記錄了從 2026 年 1 月至 4 月的密集探索歷程（55 篇筆記），涵蓋三條主線：(1) Super Happy Coder (SHC) 多 Agent 教學系統的設計、部署與迭代；(2) DesignClaw 室內設計自動化管線的 7-Agent Pipeline 實作；(3) Claude Code、OpenClaw 等 AI Agent 工具的實戰方法論。2026 年 4 月下旬更新加入 Anthropic Project Deal 代理人市集實驗——首次在受控環境中量測「模型品質差距」對代理人議價結果與使用者感知的影響，揭示了代理時代的隱形不平等議題。這些筆記共同勾勒出一幅從理論框架到生產部署的完整 Agent 實踐地圖。
 
 核心主張：Agent 的關鍵不在模型聰不聰明，而在於 **系統工程**——邊界定義、任務分解、記憶管理、多機協作、成本控制。從「寫程式」到「定義規章」的身份轉變，才是這個時代真正的技術紅利 [[2026-02-06-OpenClaw-AI-Agent-新時代思考]]。
 
@@ -67,6 +67,12 @@ Agent 的實際落地繞不開成本。SHC 混合模式用 HIGH tier（OpenAI gp
 
 模型聰明是一回事，介面怎麼管理 Session 才決定能否多工。Discord 三層結構（Server → Channel → Thread）天生適合多 Agent 控制台；Telegram 適合單兵快速指令；Line 基本不適合 [[2026-04-06_Discord作為AI-Agent控制台分析]]。Better Agent Terminal (BAT) 則用 Electron + xterm.js 統一管理多個 CLI Agent [[2026-04-09_Better-Agent-Terminal統一CLI調度中心分析]] [[2026-04-09_gemgate-BAT-Copilot整合實作指南]]。
 
+### 11. Anthropic Project Deal：AI 代理人市集與隱形不平等
+
+Anthropic 於 2025 年 12 月執行為期一週的 Project Deal 內部實驗：69 名員工各持 100 美元，全程由 Claude 代理人在 Slack 自主議價購買實體物品，共完成 186 筆交易、總值逾 4,000 美元。實驗跨越四個平行市集，比較 Opus 4.5、Haiku 4.5 等不同模型作為議價代理人時的客觀成果差異 [[2026-04-26-Anthropic-Project-Deal-代理人市集實驗]]。
+
+核心發現稱為「隱形不平等」（agent quality gap）：當 Agent 由較強模型代表時客觀上獲得更佳結果，但弱模型（Haiku 4.5）使用者完全察覺不到自己吃虧——感知滿意度與客觀收益脫鉤。這引發了代理時代的公平性疑問：若 AI 能力差距對使用者不透明，算法性不平等將以「服務滿意」的假象穩定存在。此實驗也驗證了「多代理議價」作為研究場景的可行性，為後續 Agent 協作、競爭動態的系統研究提供方法論藍圖 [[2026-04-26-Anthropic-Project-Deal-代理人市集實驗]]。
+
 ### 10. 垂直領域 Agent 實戰：政府補助助手案例
 
 Hermes Agent（Nous Research 開源框架）× Telegram × LLM Wiki × ChatGPT 的組合，實現了「AI 計劃書補助助手」的完整閉環：每日定期巡查補助公告並下載資料、根據申請須知自動產生訪綱與索資清單、針對特定計劃做即時 PDF 問答、具備長短期記憶追蹤各案進度。架構亮點：Hermes Agent 負責工具呼叫與記憶編排，LLM Wiki 提供領域知識庫，Telegram 作為顧問的行動指令介面。這個案例展示了用開源框架快速組裝「AI 員工」的可行路徑，而非從頭自建 Agent 系統 [[2026-04-18_Hermes-Agent-AI補助案助手架構分析與機會研究]]。
@@ -94,6 +100,8 @@ WFGY Problem Map 定義了 16 種 RAG/Agent 故障模式及修復方法。核心
 > **SHC 測試覆蓋率 61.8%（21/34 有效通過）**：切換到 Claude Backend 後比 Gemini 改善 +3 通過，但仍有 13 項失敗。Phase 6 Compute Plane 達 87.5%。 [[2026-01-30-Super-Happy-Coder-修復後完整測試報告]] [[2026-01-31-SHC-Phase6-Compute-Plane-測試報告]]
 
 > **VibeResearch 的學術驗證**：史丹佛教授用 Claude Code 在不到一小時內擴展已發表論文，準確率 29/30 縣正確、數據相關係數 > 0.999。 [[2026-01-25-VibeResearch-Claude-Code寫論文]]
+
+> **Project Deal 揭示「隱形不平等」**：Haiku 4.5 使用者在 Slack 議價市集中客觀上吃了虧，但感知滿意度與真實收益完全脫鉤——他們根本不知道自己的代理人比別人弱。這是 Agent 品質差距的倫理面向：能力差異若對使用者不透明，將以「滿意」的假象穩定存在，成為難以干預的結構性不平等。 [[2026-04-26-Anthropic-Project-Deal-代理人市集實驗]]
 
 ## 跨筆記關聯
 
@@ -138,3 +146,5 @@ SHC 遭遇 OpenAI GPT-5 系列 API 參數變更（`max_tokens` → `max_completi
 7. **BAT × gemgate 整合落地**：統一調度中心的架構已清楚 [[2026-04-09_gemgate-BAT-Copilot整合實作指南]]，但尚未進入實作階段。
 
 8. **垂直領域 Agent 的商業化路徑**：Hermes Agent 補助案助手案例 [[2026-04-18_Hermes-Agent-AI補助案助手架構分析與機會研究]] 展示了以開源框架快速組裝垂直 AI 員工的可行性。SBIR/SIIR/CITD 補助輔導顧問市場有多大？類似模式能否複製到其他高文件負荷的專業服務（如會計師事務所、法律事務所）？
+
+9. **隱形不平等的緩解機制**：Project Deal 揭示代理人品質差距對使用者不透明 [[2026-04-26-Anthropic-Project-Deal-代理人市集實驗]]。如何設計「能力標示」或「議價代理人評級」機制，讓使用者在部署前理解模型選擇的後果？這是 Agent 治理與 AI Safety 的交叉議題，值得進一步研究。

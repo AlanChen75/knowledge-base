@@ -1,19 +1,19 @@
 {
-  "created": "2026-04-26T01:10:19.246753",
-  "git_sha": "5bcd926c696ad0d90638c2cd74724828cdd2c9d0",
+  "created": "2026-04-27T01:13:56.782944",
+  "git_sha": "4951ed0751ab8a3af4b1df9b2b80df5c15c7cfe8",
   "topics": [
     {
       "slug": "ai-agent",
       "name": "AI Agent 架構與實戰",
-      "note_count": 54,
-      "char_count": 44238,
+      "note_count": 55,
+      "char_count": 45086,
       "prompt_path": "/home/user/knowledge-base/compiled/.prompts/ai-agent-prompt.md"
     },
     {
       "slug": "llm-tech",
       "name": "LLM 技術與模型",
-      "note_count": 59,
-      "char_count": 47500,
+      "note_count": 61,
+      "char_count": 49273,
       "prompt_path": "/home/user/knowledge-base/compiled/.prompts/llm-tech-prompt.md"
     },
     {
@@ -40,8 +40,8 @@
     {
       "slug": "knowledge-management",
       "name": "知識管理與第二大腦",
-      "note_count": 10,
-      "char_count": 8937,
+      "note_count": 11,
+      "char_count": 9862,
       "prompt_path": "/home/user/knowledge-base/compiled/.prompts/knowledge-management-prompt.md"
     },
     {
